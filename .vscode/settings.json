@@ -1,0 +1,104 @@
+{
+    /* VSCode - Breadcrumbs */
+    "breadcrumbs.symbolPath": "off",
+    "breadcrumbs.icons": false,
+
+    /* VSCode - Editor */
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": "'calt', 'ss03', 'ss04', 'ss05'",
+    "editor.fontWeight": "450",
+    "editor.letterSpacing": 0.25,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+
+    /* VSCode - Explorer */
+    "explorer.decorations.colors": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+    },
+    "explorer.sortOrder": "type",
+
+    /* VSCode - Workbench */
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.tree.indent": 19,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.view.alwaysShowHeaderActions": true,
+
+    /* VSCode - Git */
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+
+    /* Language - Json */
+    "deno.enable": false,
+    "[json][jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "denoland.vscode-deno",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        }
+    },
+
+    /* Language - Markdown */
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "explicit"
+        }
+    },
+
+    /* Extension - Todo Tree */
+    "todo-tree.highlights.enabled": false,
+
+    /* Extension - Material Icon Theme */
+    "material-icon-theme.files.associations": {
+    },
+    "material-icon-theme.folders.associations": {
+    },
+
+    /* Extension - Dotenv Official +Vault */
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "keyword.other.dotenv",
+                "settings": {
+                    "foreground": "#FF000000"
+                }
+            }
+        ]
+    },
+    "files.associations": {
+        ".env*": "dotenv"
+    },
+
+    /* Extension - Explorer Exclude */
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/Thumbs.db": false,
+        ".git": false,
+        ".vscode": false
+    },
+    "explorerExclude.backup": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".git": true,
+        ".vscode": true
+    }
+}
