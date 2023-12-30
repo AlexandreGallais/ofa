@@ -89,7 +89,10 @@
         "**/.DS_Store": false,
         "**/Thumbs.db": false,
         ".git": false,
-        ".vscode": false
+        ".vscode": false,
+        "deno.json": false,
+        ".gitignore": false,
+        ".editorconfig": false
     },
     "explorerExclude.backup": {
         "**/.git": true,
@@ -99,6 +102,9 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         ".git": true,
-        ".vscode": true
+        ".vscode": true,
+        "deno.json": true,
+        ".gitignore": true,
+        ".editorconfig": true
     }
 }
