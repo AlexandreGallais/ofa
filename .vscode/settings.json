@@ -32,20 +32,51 @@
     "workbench.tree.indent": 19,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.colorCustomizations": {
+        "gitDecoration.addedResourceForeground": "#ABB2BF",
+        "gitDecoration.conflictingResourceForeground": "#ABB2BF",
+        "gitDecoration.deletedResourceForeground": "#ABB2BF",
+        "gitDecoration.ignoredResourceForeground": "#ABB2BF",
+        "gitDecoration.modifiedResourceForeground": "#ABB2BF",
+        "gitDecoration.renamedResourceForeground": "#ABB2BF",
+        "gitDecoration.stageDeletedResourceForeground": "#ABB2BF",
+        "gitDecoration.stageModifiedResourceForeground": "#ABB2BF",
+        "gitDecoration.submoduleResourceForeground": "#ABB2BF",
+        "gitDecoration.untrackedResourceForeground": "#ABB2BF",
+        "tab.activeForeground": "#ABB2BF",
+        "tab.hoverForeground": "#ABB2BF",
+        "tab.inactiveForeground": "#ABB2BF",
+        "list.activeSelectionForeground": "#ABB2BF",
+        "list.inactiveSelectionForeground": "#ABB2BF"
+    },
 
     /* VSCode - Git */
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
 
-    /* Language - Json */
-    "deno.enable": false,
-    "[json][jsonc]": {
+    /* Language - All */
+    "[html][css][scss][json][jsonc]": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "denoland.vscode-deno",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    /* Language - CSS */
+    "stylelint.validate": ["css", "scss", "vue"],
+    "[css][scss][vue]": {
         "editor.codeActionsOnSave": {
-            "source.fixAll": "explicit"
+            "source.fixAll.stylelint": "explicit"
         }
     },
+
+    /* Language - JavaScript */
+    "[javascript][typescript][vue]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        }
+    },
+    "eslint.codeActionsOnSave.rules": ["!prefer-const", "*"],
 
     /* Language - Markdown */
     "[markdown]": {
@@ -60,10 +91,8 @@
     "todo-tree.highlights.enabled": false,
 
     /* Extension - Material Icon Theme */
-    "material-icon-theme.files.associations": {
-    },
-    "material-icon-theme.folders.associations": {
-    },
+    "material-icon-theme.files.associations": {},
+    "material-icon-theme.folders.associations": {},
 
     /* Extension - Dotenv Official +Vault */
     "editor.tokenColorCustomizations": {
@@ -82,19 +111,6 @@
 
     /* Extension - Explorer Exclude */
     "files.exclude": {
-        "**/.git": false,
-        "**/.svn": false,
-        "**/.hg": false,
-        "**/CVS": false,
-        "**/.DS_Store": false,
-        "**/Thumbs.db": false,
-        ".git": false,
-        ".vscode": false,
-        "deno.json": false,
-        ".gitignore": false,
-        ".editorconfig": false
-    },
-    "explorerExclude.backup": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -105,6 +121,16 @@
         ".vscode": true,
         "deno.json": true,
         ".gitignore": true,
-        ".editorconfig": true
-    }
+        "vite.config.ts": true,
+        "tsconfig.json": true,
+        "package.json": true,
+        "node_modules": true,
+        ".storybook": true,
+        ".editorconfig": true,
+        ".eslintrc.json": true,
+        ".stylelintrc.json": true,
+        "src/vite-env.d.ts": true
+    },
+    "explorerExclude.backup": {},
+    "svg.preview.background": "editor"
 }

@@ -1,0 +1,52 @@
+:root {
+    // Color/Text
+    --ofa-color-text-default: hsl(0deg 0% 0% / 100%);
+    --ofa-color-text-reverse: hsl(0deg 0% 100% / 100%);
+    --ofa-color-text-primary: hsl(210deg 50% 30% / 100%);
+    --ofa-color-text-danger: hsl(0deg 75% 33% / 100%);
+    --ofa-color-text-disabled: hsl(0deg 0% 15% / 100%);
+    --ofa-color-text-placeholder: hsl(0deg 0% 40% / 100%);
+
+    // Color/Background
+    --ofa-color-background-default: hsl(36deg 10% 90% / 100%);
+    --ofa-color-background-disabled: hsl(36deg 10% 70% / 100%);
+
+    // Color/Border
+    --ofa-color-border-default: hsl(36deg 10% 70% / 100%);
+
+    // Color/Primary
+    --ofa-color-primary-default: hsl(210deg 50% 35% / 100%);
+    --ofa-color-primary-hover: hsl(210deg 50% 27.5% / 100%);
+    --ofa-color-primary-active: hsl(210deg 50% 20% / 100%);
+
+    // Color/Secondary
+    --ofa-color-secondary-default: hsl(0deg 0% 35% / 100%);
+    --ofa-color-secondary-hover: hsl(0deg 0% 27.5% / 100%);
+    --ofa-color-secondary-active: hsl(0deg 0% 20% / 100%);
+
+    // Color/Ghost
+    --ofa-color-ghost-default: hsl(36deg 10% 90% / 100%);
+    --ofa-color-ghost-hover: hsl(33deg 10% 80% / 100%);
+    --ofa-color-ghost-active: hsl(37deg 10% 60% / 100%);
+
+    // Color/Danger
+    --ofa-color-danger-default: hsl(0deg 75% 39% / 100%);
+    --ofa-color-danger-hover: hsl(0deg 75% 31% / 100%);
+    --ofa-color-danger-active: hsl(0deg 76% 23% / 100%);
+
+    // Border
+    --ofa-border-radius: 4px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5em;
+
+    @font-face {
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400;
+        src: url("./font/IBMPlexSans-Regular.woff2") format("woff2");
+    }
+}
