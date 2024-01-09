@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Button from './OfaButton.vue';
+import Component from './OfaButton.vue';
+import { iconList } from '../../Core/iconList';
 
 const meta = {
     title: 'Component/Button',
-    component: Button,
+    component: Component,
     parameters: {
         docs: {
             canvas: { sourceState: 'shown' },
@@ -18,8 +19,15 @@ const meta = {
         innerText: {
             control: { type: 'text' },
         },
+        icon: {
+            options: iconList,
+            control: { type: 'select' },
+        },
+        disabled: {
+            control: { type: 'boolean' },
+        },
     },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Component>;
 
 export default meta;
 
@@ -30,5 +38,6 @@ export const Default: Story = {
     args: {
         category: 'primary',
         innerText: 'OfaButton',
+        icon: 'ofa',
     },
 };

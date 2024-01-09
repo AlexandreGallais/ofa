@@ -6,7 +6,7 @@ const preview: Preview = {
     parameters: {
         options: {
             storySort: {
-                order: ['*']
+                order: ['Icon/Docs', '*']
             }
         },
         actions: { argTypesRegex: "^on[A-Z].*" },

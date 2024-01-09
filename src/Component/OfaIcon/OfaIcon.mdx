@@ -1,0 +1,20 @@
+import { Meta, Primary, Controls, IconGallery, IconItem, Story } from '@storybook/blocks';
+import * as Stories from './OfaIcon.story';
+
+<Meta of={Stories} />
+
+# Icon
+
+<Primary />
+
+## Input
+
+<Controls />
+
+# Iconography
+
+<IconGallery>
+    <IconItem name="chevron-down"><Story of={Stories.ChevronDown} /></IconItem>
+    <IconItem name="circle"><Story of={Stories.Circle} /></IconItem>
+    <IconItem name="ofa"><Story of={Stories.Ofa} /></IconItem>
+</IconGallery>

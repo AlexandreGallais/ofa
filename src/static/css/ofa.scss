@@ -9,6 +9,7 @@
 
     // Color/Background
     --ofa-color-background-default: hsl(36deg 10% 90% / 100%);
+    --ofa-color-background-popover: hsl(36deg 10% 95% / 100%);
     --ofa-color-background-disabled: hsl(36deg 10% 70% / 100%);
 
     // Color/Border
@@ -35,7 +36,11 @@
     --ofa-color-danger-active: hsl(0deg 76% 23% / 100%);
 
     // Border
-    --ofa-border-radius: 4px;
+    --ofa-border-radius: 4px; // from 0 to 18 if component height = 36px
+
+    // Icon
+    --ofa-icon-url: "http://localhost:6006/icon";
+    --ofa-icon-radius: 1;
 
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;

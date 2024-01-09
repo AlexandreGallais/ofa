@@ -1,5 +1,21 @@
-@use "../src/Static/css/root.scss";
+@use "../src/Static/css/ofa.scss";
 
 .css-xzp052 {
     background-color: #e8e6e3;
+}
+
+html:last-child:has(.ofa-icon-radius-0) {
+    --ofa-icon-radius: 0;
+}
+
+html:last-child:has(.ofa-icon-radius-1) {
+    --ofa-icon-radius: 1;
+}
+
+html:last-child:has(.ofa-icon-radius-2) {
+    --ofa-icon-radius: 2;
+}
+
+:has(h1[id="buttonsplit"]) .css-xzp052 {
+    height: 200px;
 }
