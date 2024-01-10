@@ -42,6 +42,7 @@ defineProps({
     min-height: var(--ofa-icon-size);
     max-height: var(--ofa-icon-size);
     background-color: var(--ofa-icon-color);
+    mask-position: center;
     mask-size: var(--ofa-icon-size);
 }
 </style>

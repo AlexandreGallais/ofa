@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { PropType, onUpdated, ref } from 'vue';
-import OfaButton from '../Button/OfaButton.vue';
+import OfaButton from '../OfaButton/OfaButton.vue';
 import { IconList } from '../../Core/iconList';
 import { DomElement } from '../../Core/DomElement';
 
@@ -65,7 +65,7 @@ const dropdownDisplay = () => {
 };
 
 const positionTop = ref(false);
-const positionRight = ref(false);
+const positionLeft = ref(false);
 
 const check = {
     top: false,
@@ -77,7 +77,7 @@ const check = {
 onUpdated(() => {
     if (!dropdownActive.value) {
         positionTop.value = false;
-        positionRight.value = false;
+        positionLeft.value = false;
         check.top = false;
         check.right = false;
         check.bottom = false;
@@ -100,14 +100,14 @@ onUpdated(() => {
         positionTop.value = false;
     }
 
-    if (pos.outRight && !check.right) {
-        check.right = true;
-        positionRight.value = true;
-    }
-
     if (pos.outLeft && !check.left) {
         check.left = true;
-        positionRight.value = false;
+        positionLeft.value = true;
+    }
+
+    if (pos.outRight && !check.right) {
+        check.right = true;
+        positionLeft.value = false;
     }
 });
 </script>
@@ -117,7 +117,7 @@ onUpdated(() => {
         ofa="button-split"
         :class="{
             'position-top': positionTop,
-            'position-right': positionRight,
+            'position-left': positionLeft,
         }"
     >
         <div class="buttons" :class="category">
@@ -165,24 +165,24 @@ onUpdated(() => {
 [ofa='button-split'] {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     width: fit-content;
 
-    .buttons {
+    & > .buttons {
         display: flex;
         align-items: center;
         width: fit-content;
         border-radius: var(--ofa-border-radius);
 
-        [ofa='button']:first-child {
+        & > [ofa='button']:first-child {
             border-radius: var(--ofa-border-radius) 0 0 var(--ofa-border-radius);
         }
 
-        [ofa='button']:last-child {
+        & > [ofa='button']:last-child {
             border-radius: 0 var(--ofa-border-radius) var(--ofa-border-radius) 0;
         }
 
-        .button-split-separator {
+        & > .button-split-separator {
             width: 1px;
             height: 24px;
             background-color: var(--ofa-color-background-default);
@@ -204,7 +204,7 @@ onUpdated(() => {
         &.tertiary {
             background-color: var(--ofa-color-ghost-default);
 
-            .button-split-separator {
+            & > .button-split-separator {
                 background-color: var(--ofa-color-primary-default);
             }
         }
@@ -213,12 +213,12 @@ onUpdated(() => {
             outline: solid 1px var(--ofa-color-primary-default);
             outline-offset: -1px;
 
-            [ofa='button']:first-child {
+            & > [ofa='button']:first-child {
                 padding-right: 2px;
                 border-right: none;
             }
 
-            [ofa='button']:last-child {
+            & > [ofa='button']:last-child {
                 padding-left: 2px;
                 border-left: none;
             }
@@ -240,7 +240,7 @@ onUpdated(() => {
         }
 
         /* stylelint-disable-next-line no-descending-specificity */
-        [ofa='button'] {
+        & > [ofa='button'] {
             --ofa-color-ghost-default: var(--ofa-color-background-popover);
             --ofa-border-radius: 0;
         }
@@ -250,14 +250,14 @@ onUpdated(() => {
         &.primary,
         &.secondary,
         &.danger {
-            [ofa='button']:last-child:deep(span) {
+            & > [ofa='button']:last-child:deep(span) {
                 border-color: var(--ofa-color-background-default);
             }
         }
 
         &.ghost,
         &.tertiary {
-            [ofa='button']:last-child:deep(span) {
+            & > [ofa='button']:last-child:deep(span) {
                 border-color: var(--ofa-color-primary-default);
             }
         }
@@ -271,8 +271,8 @@ onUpdated(() => {
         }
     }
 
-    &.position-right {
-        align-items: flex-end;
+    &.position-left {
+        align-items: flex-start;
     }
 }
 </style>
