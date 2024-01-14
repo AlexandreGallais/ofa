@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import OfaButton from '../Component/Button/OfaButton.vue';
+import { ref } from 'vue';
+import OfaPickerDate from '../Component/OfaPickerDate/OfaPickerDate.vue';
+
+const t = ref(new Date());
 </script>
 
 <template>
-    <ofa-button inner-text=""></ofa-button>
+    {{ t }}
+    <OfaPickerDate v-model:date="t" />
 </template>

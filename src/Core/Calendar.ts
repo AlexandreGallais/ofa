@@ -9,6 +9,19 @@ export class Calendar {
      *
      */
 
+    static setTimeToZero = (date: Date) => {
+        const a = new Date(date);
+        a.setHours(0, 0, 0, 0);
+        return a;
+    };
+
+    static isDateTheSame = (dateA: Date, dateB: Date) => {
+        return (
+            Calendar.setTimeToZero(dateA).getTime() ===
+            Calendar.setTimeToZero(dateB).getTime()
+        );
+    };
+
     /**
      * Get the first day of the week of a given date.
      *
@@ -24,9 +37,7 @@ export class Calendar {
         date: Date = new Date(),
         weekStartOnMonday = true,
     ) => {
-        const a = new Date(date);
-        a.setHours(0, 0, 0, 0);
-
+        const a = Calendar.setTimeToZero(date);
         let b = a.getDay();
         if (weekStartOnMonday) b -= 1;
         if (b === -1) b = 6;
@@ -88,9 +99,8 @@ export class Calendar {
         weekStartOnMonday = true,
         firstWeekStartOnFourth = true,
     ) => {
-        const a = new Date(date);
+        const a = Calendar.setTimeToZero(date);
         a.setDate(1);
-        a.setHours(0, 0, 0, 0);
         const b = Calendar.getFirstDayOfTheWeek(a, weekStartOnMonday);
         // const c: { date: Date; otherMonth: boolean }[][] = [];
 
@@ -113,6 +123,7 @@ export class Calendar {
                 );
 
                 return x.map((y) => ({
+                    date: y,
                     weekNumber,
                     dayNumber: y.getDate(),
                     otherMonth: a.getMonth() !== y.getMonth(),

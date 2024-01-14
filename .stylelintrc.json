@@ -110,6 +110,7 @@
 
                 "text-align",
                 "text-decoration",
+                "text-transform",
 
                 "overflow",
                 "overflow-x",

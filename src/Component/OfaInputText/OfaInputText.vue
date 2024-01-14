@@ -32,6 +32,7 @@ defineProps({
     border-bottom-color: var(--ofa-color-primary-default);
     border-radius: var(--ofa-border-radius);
     cursor: text;
+    user-select: none;
 
     & > input {
         width: 100%;

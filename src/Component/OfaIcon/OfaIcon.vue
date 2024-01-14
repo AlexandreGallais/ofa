@@ -44,5 +44,6 @@ defineProps({
     background-color: var(--ofa-icon-color);
     mask-position: center;
     mask-size: var(--ofa-icon-size);
+    user-select: none;
 }
 </style>

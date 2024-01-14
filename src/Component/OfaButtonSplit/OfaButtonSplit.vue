@@ -36,27 +36,27 @@ defineProps({
     },
 });
 
-const dropdownActive = ref(false);
 const menuRef = ref<HTMLDivElement>();
+const menuActive = ref(false);
 
 const dropdownDisplay = () => {
-    dropdownActive.value = !dropdownActive.value;
+    menuActive.value = !menuActive.value;
 
-    if (!dropdownActive.value) {
+    if (!menuActive.value) {
         return;
     }
 
     const closeDropdown = (eventB: MouseEvent) => {
-        if (!dropdownActive.value) {
+        if (!menuActive.value) {
             window.removeEventListener('click', closeDropdown);
         }
 
         if (
             (eventB.target as HTMLElement).closest(
-                '[ofa=button-split] .dropdown',
+                '[ofa=button-split] menu',
             ) !== menuRef.value
         ) {
-            dropdownActive.value = false;
+            menuActive.value = false;
             window.removeEventListener('click', closeDropdown);
         }
     };
@@ -75,7 +75,7 @@ const check = {
 };
 
 onUpdated(() => {
-    if (!dropdownActive.value) {
+    if (!menuActive.value) {
         positionTop.value = false;
         positionLeft.value = false;
         check.top = false;
@@ -139,7 +139,7 @@ onUpdated(() => {
             />
         </div>
 
-        <menu ref="menuRef" :class="{ active: dropdownActive }">
+        <menu ref="menuRef" :class="{ active: menuActive }">
             <OfaButton
                 v-for="(button, i) in buttons.slice(1, buttons.length)"
                 :key="i"
@@ -148,7 +148,7 @@ onUpdated(() => {
                 :inner-text="button.innerText"
                 :disabled="button.disabled"
                 @click="
-                    dropdownActive = false;
+                    menuActive = false;
                     button.onClick();
                 "
                 tabindex="-1"
@@ -163,6 +163,7 @@ onUpdated(() => {
     flex-direction: column;
     align-items: flex-end;
     width: fit-content;
+    user-select: none;
 
     menu {
         position: fixed;

@@ -14,11 +14,11 @@ const meta = {
         date: { control: 'date' },
         weekFirstDay: {
             options: ['Sunday', 'Monday'],
-            control: { type: 'radio' },
+            control: { type: 'inline-radio' },
         },
         firstWeekStartingDayNumber: {
             options: [1, 4],
-            control: { type: 'radio' },
+            control: { type: 'inline-radio' },
         },
     },
 } satisfies Meta<typeof Component>;
@@ -29,7 +29,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     tags: ['isHidden'],
-    args: {
-        date: new Date(),
-    },
+    args: {},
 };
