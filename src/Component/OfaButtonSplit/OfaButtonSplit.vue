@@ -37,7 +37,7 @@ defineProps({
 });
 
 const dropdownActive = ref(false);
-const dropdownRef = ref<HTMLDivElement>();
+const menuRef = ref<HTMLDivElement>();
 
 const dropdownDisplay = () => {
     dropdownActive.value = !dropdownActive.value;
@@ -54,7 +54,7 @@ const dropdownDisplay = () => {
         if (
             (eventB.target as HTMLElement).closest(
                 '[ofa=button-split] .dropdown',
-            ) !== dropdownRef.value
+            ) !== menuRef.value
         ) {
             dropdownActive.value = false;
             window.removeEventListener('click', closeDropdown);
@@ -84,11 +84,11 @@ onUpdated(() => {
         check.left = false;
     }
 
-    if (!dropdownRef.value) {
+    if (!menuRef.value) {
         return;
     }
 
-    const pos = DomElement.getWindowPositions(dropdownRef.value);
+    const pos = DomElement.getWindowPositions(menuRef.value);
 
     if (pos.outBottom && !check.bottom) {
         check.bottom = true;
@@ -120,7 +120,7 @@ onUpdated(() => {
             'position-left': positionLeft,
         }"
     >
-        <div class="buttons" :class="category">
+        <div class="split-wrapper" :class="category">
             <OfaButton
                 :category="category"
                 :icon="buttons[0].icon"
@@ -139,11 +139,7 @@ onUpdated(() => {
             />
         </div>
 
-        <div
-            ref="dropdownRef"
-            class="dropdown"
-            :class="{ active: dropdownActive }"
-        >
+        <menu ref="menuRef" :class="{ active: dropdownActive }">
             <OfaButton
                 v-for="(button, i) in buttons.slice(1, buttons.length)"
                 :key="i"
@@ -157,7 +153,7 @@ onUpdated(() => {
                 "
                 tabindex="-1"
             />
-        </div>
+        </menu>
     </div>
 </template>
 
@@ -168,18 +164,39 @@ onUpdated(() => {
     align-items: flex-end;
     width: fit-content;
 
-    & > .buttons {
+    menu {
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        margin: 36px 0 0;
+        padding: 0;
+        background-color: var(--ofa-color-text-reverse);
+        border: solid 1px var(--ofa-color-border-default);
+        border-radius: var(--ofa-border-radius);
+        overflow: hidden;
+
+        &.active {
+            display: flex;
+        }
+
+        & > [ofa='button'] {
+            --ofa-border-radius: 0;
+        }
+    }
+
+    & > .split-wrapper {
         display: flex;
         align-items: center;
-        width: fit-content;
         border-radius: var(--ofa-border-radius);
 
         & > [ofa='button']:first-child {
-            border-radius: var(--ofa-border-radius) 0 0 var(--ofa-border-radius);
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         & > [ofa='button']:last-child {
-            border-radius: 0 var(--ofa-border-radius) var(--ofa-border-radius) 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
 
         & > .button-split-separator {
@@ -200,16 +217,8 @@ onUpdated(() => {
             background-color: var(--ofa-color-danger-default);
         }
 
-        &.ghost,
         &.tertiary {
-            background-color: var(--ofa-color-ghost-default);
-
-            & > .button-split-separator {
-                background-color: var(--ofa-color-primary-default);
-            }
-        }
-
-        &.tertiary {
+            background-color: var(--ofa-color-tertiary-default);
             outline: solid 1px var(--ofa-color-primary-default);
             outline-offset: -1px;
 
@@ -223,50 +232,30 @@ onUpdated(() => {
                 border-left: none;
             }
         }
-    }
 
-    .dropdown {
-        position: fixed;
-        display: none;
-        flex-direction: column;
-        width: fit-content;
-        margin-top: 36px;
-        border: solid 1px var(--ofa-color-border-default);
-        border-radius: var(--ofa-border-radius);
-        overflow: hidden;
-
-        &.active {
-            display: flex;
-        }
-
-        /* stylelint-disable-next-line no-descending-specificity */
-        & > [ofa='button'] {
-            --ofa-color-ghost-default: var(--ofa-color-background-popover);
-            --ofa-border-radius: 0;
+        &.ghost > .button-split-separator,
+        &.tertiary > .button-split-separator {
+            background-color: var(--ofa-color-primary-default);
         }
     }
 
-    &:has(.dropdown.active) .buttons {
-        &.primary,
-        &.secondary,
-        &.danger {
-            & > [ofa='button']:last-child:deep(span) {
-                border-color: var(--ofa-color-background-default);
-            }
+    &:has(menu.active) .split-wrapper {
+        &.primary > [ofa='button']:last-child:deep(span),
+        &.secondary > [ofa='button']:last-child:deep(span),
+        &.danger > [ofa='button']:last-child:deep(span) {
+            border-color: var(--ofa-color-background-default);
         }
 
-        &.ghost,
-        &.tertiary {
-            & > [ofa='button']:last-child:deep(span) {
-                border-color: var(--ofa-color-primary-default);
-            }
+        &.ghost > [ofa='button']:last-child:deep(span),
+        &.tertiary > [ofa='button']:last-child:deep(span) {
+            border-color: var(--ofa-color-primary-default);
         }
     }
 
     &.position-top {
         flex-direction: column-reverse;
 
-        & > .dropdown {
+        & > menu {
             margin-bottom: 36px;
         }
     }

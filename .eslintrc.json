@@ -34,7 +34,7 @@
         "@typescript-eslint/no-magic-numbers": [1],
         "no-plusplus": [2],
         "no-shadow": [0],
-        "@typescript-eslint/no-shadow": [2],
+        "@typescript-eslint/no-shadow": [2, { "allow": ["_"] }],
         "no-var": [2],
         "prefer-const": [1],
         "prefer-destructuring": [0],

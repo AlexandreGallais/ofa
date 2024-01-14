@@ -9,7 +9,6 @@
 
     // Color/Background
     --ofa-color-background-default: hsl(36deg 10% 90% / 100%);
-    --ofa-color-background-popover: hsl(36deg 10% 95% / 100%);
     --ofa-color-background-disabled: hsl(36deg 10% 70% / 100%);
 
     // Color/Border
@@ -25,10 +24,10 @@
     --ofa-color-secondary-hover: hsl(0deg 0% 27.5% / 100%);
     --ofa-color-secondary-active: hsl(0deg 0% 20% / 100%);
 
-    // Color/Ghost
-    --ofa-color-ghost-default: hsl(36deg 10% 90% / 100%);
-    --ofa-color-ghost-hover: hsl(33deg 10% 80% / 100%);
-    --ofa-color-ghost-active: hsl(37deg 10% 60% / 100%);
+    // Color/Tertiary
+    --ofa-color-tertiary-default: hsl(36deg 10% 90% / 100%);
+    --ofa-color-tertiary-hover: hsl(33deg 10% 80% / 100%);
+    --ofa-color-tertiary-active: hsl(37deg 10% 60% / 100%);
 
     // Color/Danger
     --ofa-color-danger-default: hsl(0deg 75% 39% / 100%);
@@ -41,12 +40,6 @@
     // Icon
     --ofa-icon-url: "http://localhost:6006/icon";
     --ofa-icon-radius: 1;
-
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5em;
 
     @font-face {
         font-family: "IBM Plex Sans";

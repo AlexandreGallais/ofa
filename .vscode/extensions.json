@@ -1,3 +1,20 @@
 {
-    "recommendations": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"]
+    "recommendations": [
+        "formulahendry.auto-rename-tag",
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "PeterSchmalfeldt.explorer-exclude",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "PKief.material-icon-theme",
+        "unifiedjs.vscode-mdx",
+        "zhuangtongfa.Material-theme",
+        "ionutvmi.path-autocomplete",
+        "esbenp.prettier-vscode",
+        "stylelint.vscode-stylelint",
+        "Vue.vscode-typescript-vue-plugin",
+        "Vue.volar"
+    ]
 }

@@ -47,7 +47,7 @@ defineProps({
 <style lang="scss" scoped>
 [ofa='button'] {
     padding: 1px;
-    border: solid 1px;
+    border: solid 1px transparent;
     border-radius: var(--ofa-border-radius);
     outline: none;
     cursor: pointer;
@@ -61,12 +61,12 @@ defineProps({
         height: 1.5em;
         padding: 3px 11px;
         gap: 6px;
-        border: solid 1px;
-        border-color: inherit;
+        border: solid 1px transparent;
         border-radius: inherit;
         font-family: 'IBM Plex Sans', sans-serif;
         font-size: 16px;
         font-weight: 400;
+        line-height: 1.5em;
         white-space: nowrap;
     }
 
@@ -80,102 +80,81 @@ defineProps({
         --ofa-icon-color: var(--ofa-color-text-reverse);
 
         color: var(--ofa-color-text-reverse);
-        background-color: var(--ofa-color-primary-default);
-        border-color: var(--ofa-color-primary-default);
-
-        &:hover {
-            background-color: var(--ofa-color-primary-hover);
-            border-color: var(--ofa-color-primary-hover);
-        }
-
-        &:active {
-            background-color: var(--ofa-color-primary-active);
-            border-color: var(--ofa-color-primary-active);
-        }
 
         &:focus-visible > span {
             border-color: var(--ofa-color-background-default);
         }
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
+    &.primary {
+        background-color: var(--ofa-color-primary-default);
+
+        &:hover {
+            background-color: var(--ofa-color-primary-hover);
+        }
+
+        &:active {
+            background-color: var(--ofa-color-primary-active);
+        }
+    }
+
     &.secondary {
         background-color: var(--ofa-color-secondary-default);
-        border-color: var(--ofa-color-secondary-default);
 
         &:hover {
             background-color: var(--ofa-color-secondary-hover);
-            border-color: var(--ofa-color-secondary-hover);
         }
 
         &:active {
             background-color: var(--ofa-color-secondary-active);
-            border-color: var(--ofa-color-secondary-active);
         }
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     &.danger {
         background-color: var(--ofa-color-danger-default);
-        border-color: var(--ofa-color-danger-default);
 
         &:hover {
             background-color: var(--ofa-color-danger-hover);
-            border-color: var(--ofa-color-danger-hover);
         }
 
         &:active {
             background-color: var(--ofa-color-danger-active);
-            border-color: var(--ofa-color-danger-active);
         }
     }
 
-    &.tertiary,
-    &.ghost {
+    &.ghost,
+    &.tertiary {
         --ofa-icon-color: var(--ofa-color-text-primary);
 
         color: var(--ofa-color-text-default);
-        background-color: var(--ofa-color-ghost-default);
-        border-color: var(--ofa-color-primary-default);
-
-        /* stylelint-disable-next-line no-descending-specificity */
-        & > span {
-            border-color: var(--ofa-color-ghost-default);
-        }
-
-        &:hover {
-            background-color: var(--ofa-color-ghost-hover);
-            border-color: var(--ofa-color-primary-default);
-
-            & > span {
-                border-color: var(--ofa-color-ghost-hover);
-            }
-        }
-
-        &:active {
-            background-color: var(--ofa-color-ghost-active);
-            border-color: var(--ofa-color-primary-default);
-
-            & > span {
-                border-color: var(--ofa-color-ghost-active);
-            }
-        }
 
         &:focus-visible > span {
             border-color: var(--ofa-color-primary-default);
         }
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     &.ghost {
-        border-color: var(--ofa-color-ghost-default);
+        background-color: transparent;
 
         &:hover {
-            border-color: var(--ofa-color-ghost-hover);
+            background-color: var(--ofa-color-tertiary-hover);
         }
 
         &:active {
-            border-color: var(--ofa-color-ghost-active);
+            background-color: var(--ofa-color-tertiary-active);
+        }
+    }
+
+    &.tertiary {
+        background-color: var(--ofa-color-tertiary-default);
+        border-color: var(--ofa-color-primary-default);
+
+        &:hover {
+            background-color: var(--ofa-color-tertiary-hover);
+        }
+
+        &:active {
+            background-color: var(--ofa-color-tertiary-active);
         }
     }
 
@@ -184,13 +163,8 @@ defineProps({
 
         color: var(--ofa-color-text-disabled);
         background-color: var(--ofa-color-background-disabled);
-        border-color: var(--ofa-color-background-disabled);
+        border-color: transparent;
         pointer-events: none;
-
-        /* stylelint-disable-next-line no-descending-specificity */
-        & > span {
-            border-color: var(--ofa-color-background-disabled);
-        }
     }
 }
 </style>
