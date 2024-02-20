@@ -1,15 +1,13 @@
 <script lang="ts" setup>
 import { PropType, onUpdated, ref } from 'vue';
 import OfaButton from '../OfaButton/OfaButton.vue';
-import { IconList } from '../../Core/iconList';
+import { iconList } from '../../Core/iconList';
 import { DomElement } from '../../Core/DomElement';
 
 defineProps({
     /** The category of buttons you want to use. */
     category: {
-        type: String as PropType<
-            'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger'
-        >,
+        type: String as PropType<'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger'>,
         required: false,
         default: 'tertiary',
     },
@@ -23,7 +21,7 @@ defineProps({
                 innerText?: string;
 
                 /** The name of the icon. */
-                icon?: IconList;
+                icon?: (typeof iconList)[number];
 
                 /** Disabled the button. */
                 disabled?: boolean;
@@ -51,11 +49,7 @@ const dropdownDisplay = () => {
             window.removeEventListener('click', closeDropdown);
         }
 
-        if (
-            (eventB.target as HTMLElement).closest(
-                '[ofa=button-split] menu',
-            ) !== menuRef.value
-        ) {
+        if ((eventB.target as HTMLElement).closest('[ofa=button-split] menu') !== menuRef.value) {
             menuActive.value = false;
             window.removeEventListener('click', closeDropdown);
         }
@@ -131,12 +125,7 @@ onUpdated(() => {
 
             <div class="button-split-separator"></div>
 
-            <OfaButton
-                :category="category"
-                :icon="'chevron-down'"
-                @click.stop="dropdownDisplay"
-                tabindex="-1"
-            />
+            <OfaButton :category="category" :icon="'chevron-down'" @click.stop="dropdownDisplay" tabindex="-1" />
         </div>
 
         <menu ref="menuRef" :class="{ active: menuActive }">

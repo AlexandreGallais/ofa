@@ -1,197 +1,165 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-/**
- * Utility functions for a calendar
- */
+import Variable from './Variable';
+
+export type Weekdays = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+
 export class Calendar {
     /**
-     *
-     * Static
-     *
+     * Returns the given date with the time set to midnight (00:00:00.000).
+     * @param date - The input date.
      */
-
-    static setTimeToZero = (date: Date) => {
+    static getDateResetToMidnight = (date: Date = new Date()) => {
         const a = new Date(date);
         a.setHours(0, 0, 0, 0);
         return a;
     };
 
-    static isDateTheSame = (dateA: Date, dateB: Date) => {
+    /**
+     * Checks if two dates are equal, considering only the date portion and ignoring time.
+     * @param dateA - The first date for comparison.
+     * @param dateB - The second date for comparison.
+     */
+    static areDatesEqual = (dateA: Date, dateB: Date = new Date()) => {
+        return Calendar.getDateResetToMidnight(dateA).getTime() === Calendar.getDateResetToMidnight(dateB).getTime();
+    };
+
+    /**
+     * Checks if the months of two dates are equal.
+     * @param dateA - The first date for comparison.
+     * @param dateB - The second date for comparison.
+     */
+    static areMonthsEqual = (dateA: Date, dateB: Date = new Date()) => {
         return (
-            Calendar.setTimeToZero(dateA).getTime() ===
-            Calendar.setTimeToZero(dateB).getTime()
+            Calendar.getDateResetToMidnight(dateA).getMonth() === Calendar.getDateResetToMidnight(dateB).getMonth() &&
+            Calendar.getDateResetToMidnight(dateA).getFullYear() ===
+                Calendar.getDateResetToMidnight(dateB).getFullYear()
         );
     };
 
     /**
-     * Get the first day of the week of a given date.
-     *
-     * @param date
-     * The date you want to get the first day of the week.\
-     * Default: `new Date()`
-     *
-     * @param weekStartOnMonday
-     * Does the week start on a Monday?
-     * Default: `true`
+     * Gets the list of months in order.
+     * @param length - The maximum length of the returned strings (e.g., `3`, `1`).
+     * @param locale - Locale codes.
      */
-    static getFirstDayOfTheWeek = (
-        date: Date = new Date(),
-        weekStartOnMonday = true,
-    ) => {
-        const a = Calendar.setTimeToZero(date);
-        let b = a.getDay();
-        if (weekStartOnMonday) b -= 1;
-        if (b === -1) b = 6;
-
-        return new Date(a.setTime(a.getTime() - b * 86400000));
+    static getMonths = (length?: number, locale: string = Variable['--ofa-locale']) => {
+        return Array.from(Array(12).keys()).map((x) =>
+            new Date(`2000-${x + 1}-01`)
+                .toLocaleString(locale, {
+                    month: 'long',
+                })
+                .toLowerCase()
+                .slice(0, length),
+        );
     };
 
     /**
-     * Get the week number of a given date.
-     *
-     * @param date
-     * The date you want to know the week.\
-     * Default: `new Date()`
-     *
-     * @param weekStartOnMonday
-     * Does the week start on a Monday?\
-     * Default: `true`
-     *
-     * @param firstWeekStartOnFourth
-     * Does the first week of the year start on the fourth day?\
-     * Default: `true`
+     * Gets the list of days of the week in order, based on a chosen first day of the week.
+     * @param length - The maximum length of the returned strings (e.g., `3`, `1`).
+     * @param weekFirstDay - The day considered the start of the week.
+     * @param locale - Locale codes.
      */
-    static getWeekNumber = (
+    static getWeekdays = (
+        length?: number,
+        weekFirstDay: Weekdays = Variable['--ofa-week-first-day'],
+        locale: string = Variable['--ofa-locale'],
+    ): string[] => {
+        const a: { [key in Weekdays]: string } = {
+            Sunday: '2006',
+            Monday: '2001',
+            Tuesday: '2002',
+            Wednesday: '2003',
+            Thursday: '2004',
+            Friday: '1999',
+            Saturday: '2000',
+        };
+
+        return Array.from(Array(7).keys()).map((x) =>
+            new Date(`${a[weekFirstDay]}-01-0${x + 1}`)
+                .toLocaleString(locale, {
+                    weekday: 'long',
+                })
+                .toLowerCase()
+                .slice(0, length),
+        );
+    };
+
+    /**
+     * Gets the first day of the week for a given date, based on a chosen first day of the week.
+     * @param date - The date for which to calculate the first day of the week.
+     * @param weekFirstDay - The day considered the start of the week.
+     */
+    static getDateWeekFirstDay = (
         date: Date = new Date(),
-        weekStartOnMonday = true,
-        firstWeekStartOnFourth = true,
+        weekFirstDay: Weekdays = Variable['--ofa-week-first-day'],
     ) => {
-        const a = this.getFirstDayOfTheWeek(new Date(date), weekStartOnMonday);
-        const b = new Date(a.getFullYear(), 0, firstWeekStartOnFourth ? 4 : 1);
-        const c = this.getFirstDayOfTheWeek(b, weekStartOnMonday);
-        let d = (a.getTime() - c.getTime()) / 86400000 / 7 + 1;
-        if (d === 53 && a.getDate() > (firstWeekStartOnFourth ? 28 : 25)) d = 1;
+        const a: { [key in Weekdays]: number } = {
+            Sunday: 0,
+            Monday: 1,
+            Tuesday: 2,
+            Wednesday: 3,
+            Thursday: 4,
+            Friday: 5,
+            Saturday: 6,
+        };
+
+        const b = Calendar.getDateResetToMidnight(date);
+        let c = b.getDay() - a[weekFirstDay];
+        if (c < 0) c = 7 + c;
+
+        return new Date(b.setTime(b.getTime() - c * 86400000));
+    };
+
+    /**
+     * Gets the week number for a given date.
+     * @param date - The date for which to calculate the week number.
+     * @param weekFirstDay - The day considered the start of the week.
+     * @param firstWeekStartingDate - The date that begins the week 1 of a year.
+     */
+    static getDateWeekNumber = (
+        date: Date = new Date(),
+        weekFirstDay: Weekdays = Variable['--ofa-week-first-day'],
+        firstWeekStartingDate: number = Variable['--ofa-first-week-starting-date'],
+    ) => {
+        const a = Calendar.getDateWeekFirstDay(new Date(date), weekFirstDay);
+        const b = new Date(a.getFullYear(), 0, firstWeekStartingDate);
+        const c = Calendar.getDateWeekFirstDay(b, weekFirstDay);
+
+        // Adjust for edge cases where the week number might be 53 or 54.
+        let d = Math.round((a.getTime() - c.getTime()) / 86400000 / 7 + 1);
+        if (d === 53 && a.getDate() > 24 + firstWeekStartingDate) d = 1;
         if (d === 54) d = 1;
 
-        return Math.round(d);
+        return d;
     };
 
     /**
-     *
-     * @param date
-     * The date you want to get the month.\
-     * Default: `new Date()`
-     *
-     * @param numberOfWeeks
-     * The number of weeks you want to be returned.\
-     * Default: `6`
-     *
-     * @param weekStartOnMonday
-     * Does the week start on a Monday?\
-     * Default: `true`
-     *
-     * @param firstWeekStartOnFourth
-     * Does the first week of the year start on the fourth day?\
-     * Default: `true`
+     * Gets a list of years in a table format, centered around a specified year.
+     * @param year - The year around which the list is generated.
+     * @param startingYear - The year that will be in position 1.
+     * @param tableLength - The total number of years in the generated list.
      */
-    static getMonthDividedByXWeek = (
-        date = new Date(),
-        numberOfWeeks = 6,
-        weekStartOnMonday = true,
-        firstWeekStartOnFourth = true,
+    static generateYearModeTable = (year: number, startingYear: number = 2000, tableLength: number = 12) => {
+        let a = (year - startingYear) % tableLength;
+        if (a < 0) a = tableLength + a;
+        const b = year - a;
+        return Array.from(Array(tableLength).keys()).map((x) => b + x);
+    };
+
+    /**
+     * Generates a list of dates in a table format, centered around a specified date.
+     * @param date - The central date around which to generate the list.
+     * @param tableLengthInWeek - The total number of weeks in the generated list.
+     * @param weekFirstDay - The day considered the start of the week.
+     */
+    static generateDayModeTable = (
+        date: Date,
+        tableLengthInWeek: number = 6,
+        weekFirstDay: Weekdays = Variable['--ofa-week-first-day'],
     ) => {
-        const a = Calendar.setTimeToZero(date);
-        a.setDate(1);
-        const b = Calendar.getFirstDayOfTheWeek(a, weekStartOnMonday);
-        // const c: { date: Date; otherMonth: boolean }[][] = [];
-
-        const c = Array.from(Array(numberOfWeeks))
-            .map((_, i) =>
-                Array.from(Array(7)).map(
-                    (_, ii) =>
-                        new Date(
-                            b.setDate(
-                                b.getDate() + (i === 0 && ii === 0 ? 0 : 1),
-                            ),
-                        ),
-                ),
-            )
-            .map((x) => {
-                const weekNumber = Calendar.getWeekNumber(
-                    x[0],
-                    weekStartOnMonday,
-                    firstWeekStartOnFourth,
-                );
-
-                return x.map((y) => ({
-                    date: y,
-                    weekNumber,
-                    dayNumber: y.getDate(),
-                    otherMonth: a.getMonth() !== y.getMonth(),
-                }));
-            });
-
-        return c;
+        const a = Calendar.getDateWeekFirstDay(new Date(new Date(date).setDate(1)), weekFirstDay);
+        return [
+            new Date(a),
+            ...Array.from(Array(7 * tableLengthInWeek - 1).keys()).map(() => new Date(a.setDate(a.getDate() + 1))),
+        ];
     };
-
-    /**
-     *
-     * Object
-     *
-     */
-
-    #weekFirstDay: 'Sunday' | 'Monday';
-    /** Represents the day that is considered the beginning of the week. */
-    get weekFirstDay() {
-        return this.#weekFirstDay;
-    }
-
-    #firstWeekStartingDayNumber: 1 | 4;
-    /** Represents the day the first week of a calendar year begins. */
-    get firstWeekStartingDayNumber() {
-        return this.#firstWeekStartingDayNumber;
-    }
-
-    #days = [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
-    ];
-    get days() {
-        return this.#days;
-    }
-
-    #daysFirstLetters: string[];
-    get daysFirstLetters() {
-        return this.#daysFirstLetters;
-    }
-
-    /**
-     * Utility object for a calendar
-     *
-     * @param weekFirstDay
-     * Represents the day that is considered the beginning of the week.\
-     * Default: `Monday`.
-     *
-     * @param firstWeekStartingDayNumber
-     * Represents the day of the week on which the first week of a calendar year begins.\
-     * Default: `4`.
-     */
-    constructor(
-        weekFirstDay: Calendar['weekFirstDay'] = 'Monday',
-        firstWeekStartingDayNumber: Calendar['firstWeekStartingDayNumber'] = 4,
-    ) {
-        this.#weekFirstDay = weekFirstDay;
-        this.#firstWeekStartingDayNumber = firstWeekStartingDayNumber;
-
-        if (this.#weekFirstDay === 'Sunday') {
-            this.#days.pop();
-            this.#days.unshift('Sunday');
-        }
-
-        this.#daysFirstLetters = this.#days.map((day) => day.slice(0, 2));
-    }
 }

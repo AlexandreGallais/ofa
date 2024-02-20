@@ -7,15 +7,21 @@ defineProps({
         type: Boolean,
         required: false,
     },
+
+    /** Disabled the input. */
+    disabled: {
+        type: Boolean,
+        required: false,
+    },
 });
 </script>
 
 <template>
     <label ofa="input-text">
-        <input type="text" :readonly="readonly" />
+        <input type="text" :readonly="readonly" :disabled="disabled" />
 
         <span class="read-only-badge" title="read-only">
-            <OfaIcon name="eye" />
+            <OfaIcon :name="disabled ? 'danger' : 'eye'" />
         </span>
     </label>
 </template>
@@ -74,6 +80,25 @@ defineProps({
 
     &:has(input:read-only) .read-only-badge {
         display: flex;
+    }
+
+    &:has(input:disabled) {
+        background-color: var(--ofa-color-background-disabled);
+        border-color: var(--ofa-color-background-disabled);
+        border-bottom-color: var(--ofa-color-background-disabled);
+        pointer-events: none;
+
+        & > input {
+            color: var(--ofa-color-text-disabled);
+            border-color: var(--ofa-color-background-disabled);
+            cursor: text;
+            user-select: text;
+            pointer-events: visiblefill;
+        }
+
+        & > .read-only-badge {
+            --ofa-icon-color: var(--ofa-color-text-disabled);
+        }
     }
 }
 </style>

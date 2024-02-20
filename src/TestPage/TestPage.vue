@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import OfaPickerDate from '../Component/OfaPickerDate/OfaPickerDate.vue';
 
-const t = ref(new Date());
+const t = ref<Date>(new Date('2000-8-31'));
 </script>
 
 <template>

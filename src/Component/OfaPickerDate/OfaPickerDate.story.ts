@@ -10,17 +10,7 @@ const meta = {
             canvas: { sourceState: 'shown' },
         },
     },
-    argTypes: {
-        date: { control: 'date' },
-        weekFirstDay: {
-            options: ['Sunday', 'Monday'],
-            control: { type: 'inline-radio' },
-        },
-        firstWeekStartingDayNumber: {
-            options: [1, 4],
-            control: { type: 'inline-radio' },
-        },
-    },
+    argTypes: {},
 } satisfies Meta<typeof Component>;
 
 export default meta;
@@ -29,5 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     tags: ['isHidden'],
-    args: {},
+    args: {
+        date: new Date('2024-01-05'),
+    },
 };

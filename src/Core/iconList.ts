@@ -1,20 +1,12 @@
-export type IconList =
-    | undefined
-    | 'ofa'
-    | 'circle'
-    | 'chevron-down'
-    | 'chevron-left'
-    | 'chevron-right'
-    | 'chevron-up'
-    | 'eye';
-
 export const iconList = [
     undefined,
-    'ofa',
+    'calendar',
     'circle',
     'chevron-down',
     'chevron-left',
     'chevron-right',
     'chevron-up',
+    'danger',
     'eye',
-];
+    'ofa',
+] as const;

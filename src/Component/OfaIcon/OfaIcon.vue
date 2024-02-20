@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { PropType } from 'vue';
 import { Variable } from '../../Core/Variable';
-import { IconList } from '../../Core/iconList';
+import { iconList } from '../../Core/iconList';
 
 defineProps({
     /** The name of the icon. */
     name: {
-        type: String as PropType<IconList>,
+        type: String as PropType<(typeof iconList)[number]>,
         required: true,
     },
     /** The size of the icon. */

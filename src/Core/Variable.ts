@@ -1,11 +1,13 @@
+import { Weekdays } from './Calendar';
+
 export class Variable {
     static #rootStyle = getComputedStyle(document.documentElement);
 
     static #getProp = (property: string) => {
-        return this.#rootStyle
-            .getPropertyValue(property)
-            .replace(/^"/su, '')
-            .replace(/"$/su, '');
+        return (
+            localStorage.getItem(property) ??
+            this.#rootStyle.getPropertyValue(property).replace(/^"/su, '').replace(/"$/su, '')
+        );
     };
 
     static #ofaIconUrl?: string;
@@ -29,9 +31,7 @@ export class Variable {
     static #ofaColorTextDefault?: string;
     static get '--ofa-color-text-default'() {
         if (!this.#ofaColorTextDefault) {
-            this.#ofaColorTextDefault = this.#getProp(
-                '--ofa-color-text-default',
-            );
+            this.#ofaColorTextDefault = this.#getProp('--ofa-color-text-default');
         }
 
         return this.#ofaColorTextDefault;
@@ -40,9 +40,7 @@ export class Variable {
     static #ofaColorTextReverse?: string;
     static get '--ofa-color-text-reverse'() {
         if (!this.#ofaColorTextReverse) {
-            this.#ofaColorTextReverse = this.#getProp(
-                '--ofa-color-text-reverse',
-            );
+            this.#ofaColorTextReverse = this.#getProp('--ofa-color-text-reverse');
         }
 
         return this.#ofaColorTextReverse;
@@ -51,9 +49,7 @@ export class Variable {
     static #ofaColorTextPrimary?: string;
     static get '--ofa-color-text-primary'() {
         if (!this.#ofaColorTextPrimary) {
-            this.#ofaColorTextPrimary = this.#getProp(
-                '--ofa-color-text-primary',
-            );
+            this.#ofaColorTextPrimary = this.#getProp('--ofa-color-text-primary');
         }
 
         return this.#ofaColorTextPrimary;
@@ -71,9 +67,7 @@ export class Variable {
     static #ofaColorTextDisabled?: string;
     static get '--ofa-color-text-disabled'() {
         if (!this.#ofaColorTextDisabled) {
-            this.#ofaColorTextDisabled = this.#getProp(
-                '--ofa-color-text-disabled',
-            );
+            this.#ofaColorTextDisabled = this.#getProp('--ofa-color-text-disabled');
         }
 
         return this.#ofaColorTextDisabled;
@@ -82,11 +76,38 @@ export class Variable {
     static #ofaColorTextPlaceholder?: string;
     static get '--ofa-color-text-placeholder'() {
         if (!this.#ofaColorTextPlaceholder) {
-            this.#ofaColorTextPlaceholder = this.#getProp(
-                '--ofa-color-text-placeholder',
-            );
+            this.#ofaColorTextPlaceholder = this.#getProp('--ofa-color-text-placeholder');
         }
 
         return this.#ofaColorTextPlaceholder;
     }
+
+    static #ofaWeekFirstDay?: Weekdays;
+    static get '--ofa-week-first-day'() {
+        if (!this.#ofaWeekFirstDay) {
+            this.#ofaWeekFirstDay = this.#getProp('--ofa-week-first-day') as Weekdays;
+        }
+
+        return this.#ofaWeekFirstDay;
+    }
+
+    static #ofaFirstWeekStartingDate?: number;
+    static get '--ofa-first-week-starting-date'() {
+        if (!this.#ofaFirstWeekStartingDate) {
+            this.#ofaFirstWeekStartingDate = Number.parseInt(this.#getProp('--ofa-first-week-starting-date'));
+        }
+
+        return this.#ofaFirstWeekStartingDate;
+    }
+
+    static #ofaLocale?: string;
+    static get '--ofa-locale'() {
+        if (!this.#ofaLocale) {
+            this.#ofaLocale = this.#getProp('--ofa-locale');
+        }
+
+        return this.#ofaLocale;
+    }
 }
+
+export default Variable;

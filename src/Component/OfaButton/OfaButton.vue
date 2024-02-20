@@ -1,14 +1,12 @@
 <script lang="ts" setup>
 import { PropType } from 'vue';
 import OfaIcon from '../OfaIcon/OfaIcon.vue';
-import { IconList } from '../../Core/iconList';
+import { iconList } from '../../Core/iconList';
 
 defineProps({
     /** The category of buttons you want to use. */
     category: {
-        type: String as PropType<
-            'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger'
-        >,
+        type: String as PropType<'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger'>,
         required: false,
         default: 'tertiary',
     },
@@ -19,7 +17,7 @@ defineProps({
     },
     /** The name of the icon. */
     icon: {
-        type: String as PropType<IconList>,
+        type: String as PropType<(typeof iconList)[number]>,
         required: false,
     },
     /** Disabled the button. */
@@ -31,11 +29,7 @@ defineProps({
 </script>
 
 <template>
-    <button
-        ofa="button"
-        :class="{ [category]: true, 'ofa-icon-only': !innerText }"
-        :disabled="disabled"
-    >
+    <button ofa="button" :class="{ [category]: true, 'ofa-icon-only': !innerText }" :disabled="disabled">
         <span>
             <OfaIcon v-if="icon" :name="icon" />
 
@@ -126,7 +120,7 @@ defineProps({
     &.tertiary {
         --ofa-icon-color: var(--ofa-color-text-primary);
 
-        color: var(--ofa-color-text-default);
+        color: var(--ofa-color-text-primary);
 
         &:focus-visible > span {
             border-color: var(--ofa-color-primary-default);

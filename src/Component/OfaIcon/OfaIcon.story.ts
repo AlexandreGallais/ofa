@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Component from './OfaIcon.vue';
-import { iconList, IconList } from '../../Core/iconList';
+import { iconList } from '../../Core/iconList';
 import { presetColors } from '../../storybook/presetColors';
 import { Variable } from '../../Core/Variable';
 
@@ -43,7 +43,7 @@ export const Default: Story = {
     },
 };
 
-const iconItem = (name: IconList) => {
+const iconItem = (name: (typeof iconList)[number]) => {
     return {
         name: name,
         color: Variable['--ofa-color-text-default'],

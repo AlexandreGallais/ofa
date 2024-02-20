@@ -109,6 +109,9 @@
         ".env*": "dotenv"
     },
 
+    /* Extension - Prettier */
+    "prettier.printWidth": 120,
+
     /* Extension - Explorer Exclude */
     "files.exclude": {
         "**/.git": false,
