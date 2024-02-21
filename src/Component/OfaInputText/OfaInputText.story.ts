@@ -11,8 +11,9 @@ const meta = {
         },
     },
     argTypes: {
-        readonly: {
-            control: { type: 'boolean' },
+        updateOn: {
+            options: ['input', 'change'],
+            control: { type: 'radio' },
         },
     },
 } satisfies Meta<typeof Component>;
@@ -23,4 +24,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     tags: ['isHidden'],
+    args: { value: 'Input Text' },
 };

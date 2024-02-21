@@ -15,9 +15,6 @@ const meta = {
             options: ['primary', 'secondary', 'tertiary', 'ghost', 'danger'],
             control: { type: 'radio' },
         },
-        buttons: {
-            control: { type: 'object' },
-        },
     },
 } satisfies Meta<typeof Component>;
 

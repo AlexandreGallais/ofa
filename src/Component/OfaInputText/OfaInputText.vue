@@ -1,33 +1,65 @@
 <script lang="ts" setup>
+import { PropType } from 'vue';
 import OfaIcon from '../OfaIcon/OfaIcon.vue';
 
 defineProps({
-    /** Set the input to read-only mode. */
+    /** Set the input to error mode. */
+    error: {
+        type: Boolean,
+        required: false,
+    },
+    /** Set the input to readonly mode. */
     readonly: {
         type: Boolean,
         required: false,
     },
-
-    /** Disabled the input. */
+    /** Set the input to disabled mode. */
     disabled: {
         type: Boolean,
         required: false,
     },
+    /** Input value. */
+    value: {
+        type: String,
+        required: true,
+    },
+    /** Select the way the value is updated. */
+    updateOn: {
+        type: String as PropType<'input' | 'change'>,
+        required: false,
+        default: 'change',
+    },
 });
+
+const emit = defineEmits([
+    /** Update value. */
+    'update:value',
+]);
 </script>
 
 <template>
-    <label ofa="input-text">
-        <input type="text" :readonly="readonly" :disabled="disabled" />
+    <label ofa="input-text" :class="{ error: error }">
+        <input
+            type="text"
+            :readonly="readonly"
+            :disabled="disabled"
+            :value="value"
+            @[updateOn]="(event: Event) => emit('update:value', (event.target as HTMLInputElement).value)"
+        />
 
-        <span class="read-only-badge" title="read-only">
+        <span class="read-only-badge" :title="disabled ? '' : 'readonly'">
             <OfaIcon :name="disabled ? 'danger' : 'eye'" />
         </span>
     </label>
 </template>
 
 <style lang="scss" scoped>
+@import '../../Core/font';
+
 [ofa='input-text'] {
+    --ofa-icon-size: 1em;
+    --ofa-icon-color: var(--ofa-color-text-primary);
+
     display: flex;
     width: fit-content;
     padding: 1px;
@@ -41,6 +73,8 @@ defineProps({
     user-select: none;
 
     & > input {
+        @include font-l-default;
+
         width: 100%;
         padding: 3px 11px;
         color: var(--ofa-color-text-default);
@@ -49,10 +83,6 @@ defineProps({
         border-color: var(--ofa-color-text-reverse);
         border-radius: inherit;
         outline: none;
-        font-family: 'IBM Plex Sans', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5em;
 
         &:focus-visible {
             border-color: var(--ofa-color-primary-default);
@@ -60,9 +90,6 @@ defineProps({
     }
 
     & > .read-only-badge {
-        --ofa-icon-color: var(--ofa-color-primary-default);
-        --ofa-icon-size: 16px;
-
         display: none;
         justify-content: center;
         align-items: center;
@@ -71,6 +98,7 @@ defineProps({
         height: 32px;
         min-height: 32px;
         border-radius: inherit;
+        cursor: default;
     }
 
     &:hover,
@@ -78,26 +106,31 @@ defineProps({
         border-color: var(--ofa-color-primary-default);
     }
 
+    &:not(:has(input:read-only)).error {
+        border-color: var(--ofa-color-danger-default);
+        border-bottom-color: var(--ofa-color-danger-default);
+
+        & > input:focus-within {
+            border-color: var(--ofa-color-danger-default);
+        }
+    }
+
     &:has(input:read-only) .read-only-badge {
         display: flex;
     }
 
     &:has(input:disabled) {
+        --ofa-icon-color: var(--ofa-color-text-disabled);
+
         background-color: var(--ofa-color-background-disabled);
         border-color: var(--ofa-color-background-disabled);
         border-bottom-color: var(--ofa-color-background-disabled);
-        pointer-events: none;
 
+        /* stylelint-disable-next-line no-descending-specificity */
         & > input {
             color: var(--ofa-color-text-disabled);
             border-color: var(--ofa-color-background-disabled);
             cursor: text;
-            user-select: text;
-            pointer-events: visiblefill;
-        }
-
-        & > .read-only-badge {
-            --ofa-icon-color: var(--ofa-color-text-disabled);
         }
     }
 }

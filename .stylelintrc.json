@@ -7,13 +7,15 @@
     "plugins": ["stylelint-order"],
 
     "rules": {
+        "at-rule-no-unknown": [true, { "ignoreAtRules": ["include", "mixin"] }],
+
         "order/order": [
             "custom-properties",
             "dollar-variables",
             "at-variables",
+            "at-rules",
             "declarations",
             "rules",
-            "at-rules",
             "less-mixins"
         ],
 

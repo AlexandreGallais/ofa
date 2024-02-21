@@ -18,9 +18,6 @@ const meta = {
             options: iconList,
             control: { type: 'select' },
         },
-        size: {
-            control: { type: 'text' },
-        },
         color: {
             control: {
                 type: 'color',

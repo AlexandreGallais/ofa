@@ -16,15 +16,9 @@ const meta = {
             options: ['primary', 'secondary', 'tertiary', 'ghost', 'danger'],
             control: { type: 'radio' },
         },
-        innerText: {
-            control: { type: 'text' },
-        },
         icon: {
             options: iconList,
             control: { type: 'select' },
-        },
-        disabled: {
-            control: { type: 'boolean' },
         },
     },
 } satisfies Meta<typeof Component>;

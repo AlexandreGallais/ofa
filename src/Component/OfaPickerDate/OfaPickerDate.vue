@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/no-magic-numbers -->
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import OfaIcon from '../OfaIcon/OfaIcon.vue';
@@ -6,14 +5,17 @@ import { Calendar } from '../../Core/Calendar';
 import Variable from '../../Core/Variable';
 
 const prop = defineProps({
-    /** Set the selected date */
-    date: {
+    /** Set the value to a selected date. */
+    value: {
         type: Date,
         required: false,
     },
 });
 
-const emit = defineEmits(['update:date']);
+const emit = defineEmits(
+    /** Update value. */
+    ['update:value'],
+);
 
 const viewMode = ref<'year' | 'month' | 'day'>('day');
 const monthsDifference = ref(0);
@@ -21,7 +23,7 @@ const weekdays = Calendar.getWeekdays(2);
 const months = Calendar.getMonths(3);
 
 const displayedDate = computed(() => {
-    const d = prop.date ? new Date(prop.date) : new Date();
+    const d = prop.value ? new Date(prop.value) : new Date();
     d.setMonth(d.getMonth() + monthsDifference.value, 1);
     return d;
 });
@@ -46,12 +48,12 @@ const isToday = (i: number) => {
 };
 
 const isSelected = (i: number) => {
-    if (!prop.date) return false;
+    if (!prop.value) return false;
 
-    if (viewMode.value === 'year') return prop.date.getFullYear() === viewModeTable.value[i];
+    if (viewMode.value === 'year') return prop.value.getFullYear() === viewModeTable.value[i];
     if (viewMode.value === 'month')
-        return Calendar.areMonthsEqual(prop.date, new Date(`${displayedDate.value.getFullYear()}-${i + 1}-1`));
-    return Calendar.areDatesEqual(prop.date, dayModeTable.value[i]);
+        return Calendar.areMonthsEqual(prop.value, new Date(`${displayedDate.value.getFullYear()}-${i + 1}-1`));
+    return Calendar.areDatesEqual(prop.value, dayModeTable.value[i]);
 };
 
 const isDisabled = (i: number) => {
@@ -79,7 +81,7 @@ const select = (i: number) => {
         return;
     }
 
-    emit('update:date', dayModeTable.value[i]);
+    emit('update:value', dayModeTable.value[i]);
     monthsDifference.value = 0;
 };
 </script>
@@ -142,7 +144,11 @@ const select = (i: number) => {
 </template>
 
 <style lang="scss" scoped>
+@import '../../Core/font';
+
 [ofa='picker-date'] {
+    @include font-l-default;
+
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -152,10 +158,6 @@ const select = (i: number) => {
     background-color: var(--ofa-color-background-default);
     border: solid 1px var(--ofa-color-border-default);
     border-radius: var(--ofa-border-radius);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5em;
     user-select: none;
 
     & > menu {
@@ -169,7 +171,7 @@ const select = (i: number) => {
         }
 
         & > .switch > button {
-            --ofa-icon-size: 16px;
+            --ofa-icon-size: 1em;
             --ofa-icon-color: var(--ofa-color-text-default);
 
             all: unset;

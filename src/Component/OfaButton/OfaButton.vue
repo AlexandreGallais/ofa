@@ -39,6 +39,8 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+@import '../../Core/font';
+
 [ofa='button'] {
     padding: 1px;
     border: solid 1px transparent;
@@ -50,6 +52,8 @@ defineProps({
     & > span {
         --ofa-icon-size: 1em;
 
+        @include font-l-default;
+
         display: flex;
         align-items: center;
         height: 1.5em;
@@ -57,10 +61,6 @@ defineProps({
         gap: 6px;
         border: solid 1px transparent;
         border-radius: inherit;
-        font-family: 'IBM Plex Sans', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5em;
         white-space: nowrap;
     }
 

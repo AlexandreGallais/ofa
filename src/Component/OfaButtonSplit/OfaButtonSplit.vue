@@ -11,9 +11,7 @@ defineProps({
         required: false,
         default: 'tertiary',
     },
-    /**
-     * The list of buttons.
-     */
+    /** The list of buttons. */
     buttons: {
         type: Array as PropType<
             {
