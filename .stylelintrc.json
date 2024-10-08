@@ -1,0 +1,53 @@
+{
+    "plugins": ["stylelint-order"],
+    "extends": "stylelint-config-standard-scss",
+
+    "rules": {
+        "order/order": [
+            {
+                "type": "at-rule",
+                "name": "include"
+            },
+            "custom-properties",
+            "dollar-variables",
+            "at-variables",
+            "declarations",
+            "rules",
+            "at-rules",
+            "less-mixins"
+        ],
+
+        "order/properties-order": [
+            [
+                "all",
+
+                "overflow",
+
+                "box-sizing",
+                "display",
+
+                "width",
+                "height",
+
+                "margin",
+                "padding",
+
+                "border",
+                "border-top",
+                "border-right",
+                "border-bottom",
+                "border-left",
+                "border-radius",
+                "outline",
+
+                "font-family",
+                "font-style",
+                "font-weight",
+                "src"
+            ],
+            {
+                "severity": "warning"
+            }
+        ]
+    }
+}
