@@ -8,7 +8,6 @@
     "editor.fontLigatures": "'calt', 'ss03', 'ss04', 'ss05'",
     "editor.fontWeight": "450",
     "editor.letterSpacing": 0.25,
-    "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
 
     /* VSCode - Explorer */
@@ -19,10 +18,8 @@
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
         "*.jsx": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "tsconfig*.json": "tsconfig${capture}.prod.json, tsconfig.spec.json",
-        "package.json": "package-lock.json, package-old.json, yarn.lock, pnpm-lock.yaml",
-        ".lint.md": ".editorconfig, .eslintrc.json, .stylelintrc.json"
+        "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig.json, vite.config.ts",
+        "eslint.config.mjs": ".editorconfig, .stylelintrc.json"
     },
     "explorer.sortOrder": "type",
 
@@ -87,6 +84,87 @@
             "source.fixAll.markdownlint": "explicit"
         }
     },
+
+    "material-icon-theme.files.customClones": [
+        {
+            "name": "git-800",
+            "base": "git",
+            "color": "gray-800",
+            "fileNames": [".git", ".gitignore", ".gitmodules"]
+        },
+        {
+            "name": "certificate-800",
+            "base": "certificate",
+            "color": "gray-800",
+            "fileNames": ["LICENSE"]
+        },
+        {
+            "name": "nodejs-500",
+            "base": "nodejs",
+            "color": "gray-500",
+            "fileNames": ["package.json"]
+        },
+        {
+            "name": "nodejs-800",
+            "base": "nodejs",
+            "color": "gray-800",
+            "fileNames": ["package-lock.json"]
+        },
+        {
+            "name": "settings-800",
+            "base": "settings",
+            "color": "gray-800",
+            "fileNames": [
+                ".editorconfig",
+                ".stylelintrc.json",
+                "eslint.config.mjs"
+            ]
+        },
+        {
+            "name": "tsconfig-500",
+            "base": "tsconfig",
+            "color": "gray-500",
+            "fileNames": ["tsconfig.json"]
+        },
+        {
+            "name": "vite-500",
+            "base": "vite",
+            "color": "gray-500",
+            "fileNames": ["vite.config.ts"]
+        }
+    ],
+    "material-icon-theme.folders.customClones": [
+        {
+            "name": "git-800",
+            "base": "git",
+            "color": "gray-800",
+            "folderNames": [".git"]
+        },
+        {
+            "name": "vscode-800",
+            "base": "vscode",
+            "color": "gray-800",
+            "folderNames": [".vscode"]
+        },
+        {
+            "name": "node_modules-800",
+            "base": "node",
+            "color": "gray-800",
+            "folderNames": ["node_modules"]
+        },
+        {
+            "name": "cache-800",
+            "base": "temp",
+            "color": "gray-800",
+            "folderNames": [".cache"]
+        },
+        {
+            "name": "storybook-800",
+            "base": "storybook",
+            "color": "gray-800",
+            "folderNames": [".storybook"]
+        }
+    ],
 
     "files.exclude": {
         "**/.git": false,

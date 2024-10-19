@@ -1,3 +1,6 @@
 [submodule "packages/ffa"]
 	path = packages/ffa
 	url = https://github.com/AlexandreGallais/ffa.git
+[submodule "static"]
+	path = static
+	url = https://github.com/AlexandreGallais/ofa-static.git
