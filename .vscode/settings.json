@@ -214,12 +214,6 @@
             ]
         },
         {
-            "name": "blue-500",
-            "base": "folder",
-            "color": "blue-500",
-            "folderNames": ["packages", "packages/ffa"]
-        },
-        {
             "name": "folder-light-blue-400",
             "base": "folder",
             "color": "light-blue-400",
@@ -227,7 +221,9 @@
                 "components",
                 "components/button",
                 "components/icon",
-                "cli"
+                "cli",
+                "packages",
+                "packages/ffa"
             ]
         },
         {
@@ -282,7 +278,6 @@
     ],
 
     /* Extension - gitmoji */
-    "gitmoji.outputType": "code",
     "gitmoji.showEmojiCode": true,
 
     /* Extension - Explorer Exclude */
