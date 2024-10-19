@@ -18,8 +18,7 @@
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
         "*.jsx": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig.json, vite.config.ts",
-        "eslint.config.mjs": ".editorconfig, .stylelintrc.json"
+        "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig.json, vite.config.ts, .editorconfig, .stylelintrc.json, eslint.config.mjs"
     },
     "explorer.sortOrder": "type",
 
@@ -85,6 +84,7 @@
         }
     },
 
+    /* Extension - Material Icon */
     "material-icon-theme.files.customClones": [
         {
             "name": "git-800",
@@ -111,9 +111,9 @@
             "fileNames": ["package-lock.json"]
         },
         {
-            "name": "settings-800",
+            "name": "settings-500",
             "base": "settings",
-            "color": "gray-800",
+            "color": "blue-gray-500",
             "fileNames": [
                 ".editorconfig",
                 ".stylelintrc.json",
@@ -131,8 +131,38 @@
             "base": "vite",
             "color": "gray-500",
             "fileNames": ["vite.config.ts"]
+        },
+        {
+            "name": "component-light-blue-400",
+            "base": "pdm",
+            "color": "light-blue-400",
+            "fileNames": []
+        },
+        {
+            "name": "stories-pink-400",
+            "base": "pdm",
+            "color": "pink-400",
+            "fileNames": []
+        },
+        {
+            "name": "style-pink-400",
+            "base": "pdm",
+            "color": "pink-400",
+            "fileNames": []
+        },
+        {
+            "name": "mdx-amber-400",
+            "base": "pdm",
+            "color": "amber-400",
+            "fileNames": []
         }
     ],
+    "material-icon-theme.files.associations": {
+        "*.lit.ts": "component-light-blue-400",
+        "*.stories.ts": "stories-pink-400",
+        "*.scss": "style-pink-400",
+        "*.mdx": "mdx-amber-400"
+    },
     "material-icon-theme.folders.customClones": [
         {
             "name": "git-800",
@@ -163,23 +193,58 @@
             "base": "storybook",
             "color": "gray-800",
             "folderNames": [".storybook"]
+        },
+        {
+            "name": "packages-500",
+            "base": "packages",
+            "color": "blue-500",
+            "folderNames": ["packages", "packages/ffa"]
+        },
+        {
+            "name": "components-light-blue-400",
+            "base": "folder",
+            "color": "light-blue-400",
+            "folderNames": [
+                "components",
+                "components/button",
+                "components/icon"
+            ]
+        },
+        {
+            "name": "stories-pink-400",
+            "base": "folder",
+            "color": "pink-400",
+            "folderNames": ["stories"]
+        },
+        {
+            "name": "styles-pink-400",
+            "base": "folder",
+            "color": "pink-400",
+            "folderNames": ["styles"]
+        },
+        {
+            "name": "assets-amber-400",
+            "base": "folder",
+            "color": "amber-400",
+            "folderNames": ["assets"]
         }
     ],
 
+    /* Extension - gitmoji */
+    "gitmoji.outputType": "code",
+    "gitmoji.showEmojiCode": true,
+
+    /* Extension - Explorer Exclude */
     "files.exclude": {
-        "**/.git": false,
-        "**/.svn": false,
-        "**/.hg": false,
-        "**/CVS": false,
-        "**/.DS_Store": false,
-        "**/Thumbs.db": false
-    },
-    "explorerExclude.backup": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
-    }
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+        "**/.storybook": true
+    },
+    "explorerExclude.backup": {}
 }
