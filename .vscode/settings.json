@@ -14,10 +14,6 @@
     "explorer.decorations.colors": false,
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "*.ts": "${capture}.js",
-        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-        "*.jsx": "${capture}.js",
-        "*.tsx": "${capture}.ts",
         "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig.json, vite.config.ts, .editorconfig, .stylelintrc.json, eslint.config.mjs"
     },
     "explorer.sortOrder": "type",
@@ -96,7 +92,13 @@
             "name": "certificate-800",
             "base": "certificate",
             "color": "gray-800",
-            "fileNames": ["LICENSE"]
+            "fileNames": ["LICENSE", "LICENSE.txt"]
+        },
+        {
+            "name": "nodejs-800",
+            "base": "nodejs",
+            "color": "gray-800",
+            "fileNames": ["package-lock.json"]
         },
         {
             "name": "nodejs-500",
@@ -105,10 +107,16 @@
             "fileNames": ["package.json"]
         },
         {
-            "name": "nodejs-800",
-            "base": "nodejs",
-            "color": "gray-800",
-            "fileNames": ["package-lock.json"]
+            "name": "ts-500",
+            "base": "typescript",
+            "color": "gray-500",
+            "fileNames": []
+        },
+        {
+            "name": "ts-400",
+            "base": "typescript",
+            "color": "light-blue-400",
+            "fileNames": []
         },
         {
             "name": "settings-500",
@@ -155,78 +163,121 @@
             "base": "pdm",
             "color": "amber-400",
             "fileNames": []
+        },
+        {
+            "name": "icon-orange-400",
+            "base": "svg",
+            "color": "orange-400",
+            "fileNames": []
+        },
+        {
+            "name": "font-red-400",
+            "base": "font",
+            "color": "red-400",
+            "fileNames": []
+        },
+        {
+            "name": "html-red-400",
+            "base": "html",
+            "color": "red-400",
+            "fileNames": []
+        },
+        {
+            "name": "readme-400",
+            "base": "readme",
+            "color": "light-blue-400",
+            "fileNames": ["readme.md"]
         }
     ],
     "material-icon-theme.files.associations": {
         "*.lit.ts": "component-light-blue-400",
         "*.stories.ts": "stories-pink-400",
         "*.scss": "style-pink-400",
-        "*.mdx": "mdx-amber-400"
+        "*.mdx": "mdx-amber-400",
+        "*.svg": "icon-orange-400",
+        "*.woff2": "font-red-400",
+        "*.html": "html-red-400",
+        "*.d.ts": "ts-500",
+        "*.ts": "ts-400"
     },
     "material-icon-theme.folders.customClones": [
         {
-            "name": "git-800",
-            "base": "git",
+            "name": "gray-800",
+            "base": "folder",
             "color": "gray-800",
-            "folderNames": [".git"]
+            "folderNames": [
+                ".git",
+                ".vscode",
+                "node_modules",
+                ".storybook",
+                ".cache"
+            ]
         },
         {
-            "name": "vscode-800",
-            "base": "vscode",
-            "color": "gray-800",
-            "folderNames": [".vscode"]
-        },
-        {
-            "name": "node_modules-800",
-            "base": "node",
-            "color": "gray-800",
-            "folderNames": ["node_modules"]
-        },
-        {
-            "name": "cache-800",
-            "base": "temp",
-            "color": "gray-800",
-            "folderNames": [".cache"]
-        },
-        {
-            "name": "storybook-800",
-            "base": "storybook",
-            "color": "gray-800",
-            "folderNames": [".storybook"]
-        },
-        {
-            "name": "packages-500",
-            "base": "packages",
+            "name": "blue-500",
+            "base": "folder",
             "color": "blue-500",
             "folderNames": ["packages", "packages/ffa"]
         },
         {
-            "name": "components-light-blue-400",
+            "name": "folder-light-blue-400",
             "base": "folder",
             "color": "light-blue-400",
             "folderNames": [
                 "components",
                 "components/button",
-                "components/icon"
+                "components/icon",
+                "cli"
             ]
         },
         {
-            "name": "stories-pink-400",
+            "name": "pink-400",
             "base": "folder",
             "color": "pink-400",
-            "folderNames": ["stories"]
+            "folderNames": ["styles", "stories"]
         },
         {
-            "name": "styles-pink-400",
-            "base": "folder",
-            "color": "pink-400",
-            "folderNames": ["styles"]
-        },
-        {
-            "name": "assets-amber-400",
+            "name": "amber-400",
             "base": "folder",
             "color": "amber-400",
-            "folderNames": ["assets"]
+            "folderNames": ["static", "assets"]
+        },
+        {
+            "name": "green-400",
+            "base": "folder",
+            "color": "green-400",
+            "folderNames": ["src"]
+        },
+        {
+            "name": "deep-orange-400",
+            "base": "folder",
+            "color": "deep-orange-400",
+            "folderNames": ["dist"]
+        },
+        {
+            "name": "red-400",
+            "base": "folder",
+            "color": "red-400",
+            "folderNames": [
+                "fonts",
+                "fonts/ibm-plex-mono",
+                "ibm-plex-mono/mono",
+                "ibm-plex-mono/sans",
+                "ibm-plex-mono/sans-condensed",
+                "ibm-plex-mono/serif"
+            ]
+        },
+        {
+            "name": "orange-400",
+            "base": "folder",
+            "color": "orange-400",
+            "folderNames": ["icons"]
+        },
+        {
+            "name": "teal-400",
+            "base": "folder",
+            "color": "teal-400",
+            "folderNames": ["images"]
         }
     ],
 
@@ -236,6 +287,17 @@
 
     /* Extension - Explorer Exclude */
     "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/Thumbs.db": false,
+        "**/node_modules": false,
+        "**/.vscode": false,
+        "**/.storybook": false
+    },
+    "explorerExclude.backup": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -245,6 +307,5 @@
         "**/node_modules": true,
         "**/.vscode": true,
         "**/.storybook": true
-    },
-    "explorerExclude.backup": {}
+    }
 }

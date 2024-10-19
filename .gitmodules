@@ -4,3 +4,6 @@
 [submodule "static"]
 	path = static
 	url = https://github.com/AlexandreGallais/ofa-static.git
+[submodule "cli"]
+	path = cli
+	url = https://github.com/AlexandreGallais/cfa.git
