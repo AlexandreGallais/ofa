@@ -1,7 +1,6 @@
 {
     "plugins": ["stylelint-order"],
     "extends": "stylelint-config-standard-scss",
-
     "rules": {
         "order/order": [
             {
@@ -49,5 +48,12 @@
                 "severity": "warning"
             }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/*.lit.ts"],
+            "extends": "stylelint-config-standard",
+            "customSyntax": "postcss-lit"
+        }
+    ]
 }
