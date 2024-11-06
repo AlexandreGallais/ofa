@@ -55,7 +55,7 @@
     },
 
     /* Language - CSS */
-    "stylelint.validate": ["css", "scss", "typescript"],
+    "stylelint.validate": ["css", "scss", "typescript"], // remove typescript when not using lit
     "[css][scss][typescript]": {
         "editor.codeActionsOnSave": {
             "source.fixAll.stylelint": "explicit"
