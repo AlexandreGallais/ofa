@@ -1,36 +1,66 @@
 {
-    "eslintConfig": {
-        "extends": [
-            "plugin:storybook/recommended"
-        ]
-    },
-    "devDependencies": {
-        "@chromatic-com/storybook": "^1.9.0",
-        "@eslint/js": "^9.12.0",
-        "@storybook/addon-essentials": "^8.3.5",
-        "@storybook/addon-links": "^8.3.5",
-        "@storybook/blocks": "^8.3.5",
-        "@storybook/test": "^8.3.5",
-        "@storybook/web-components": "^8.3.5",
-        "@storybook/web-components-vite": "^8.3.5",
-        "@types/eslint__js": "^8.42.3",
-        "@types/node": "^22.7.4",
-        "eslint": "^8.57.1",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-storybook": "^0.9.0",
-        "globals": "^15.10.0",
-        "lit": "^3.2.0",
-        "postcss-lit": "^1.1.1",
-        "prettier": "^3.3.3",
-        "sass": "^1.80.6",
-        "storybook": "^8.3.5",
-        "stylelint": "^16.10.0",
-        "stylelint-config-standard": "^36.0.1",
-        "stylelint-config-standard-scss": "^13.1.0",
-        "stylelint-order": "^6.0.4",
-        "typescript": "^5.6.2",
-        "typescript-eslint": "^8.8.1",
-        "vite": "^5.4.8"
-    }
+  "name": "ofa",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "storybook": "ng run ffa:storybook",
+    "build-storybook": "ng run ffa:build-storybook"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.11",
+    "@angular/cli": "^18.2.11",
+    "@angular/compiler-cli": "^18.2.0",
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.4.3",
+    "@storybook/addon-interactions": "^8.4.3",
+    "@storybook/addon-onboarding": "^8.4.3",
+    "@storybook/angular": "^8.4.3",
+    "@storybook/blocks": "^8.4.3",
+    "@storybook/test": "^8.4.3",
+    "@types/jasmine": "~5.1.0",
+    "angular-eslint": "18.4.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-storybook": "^0.11.0",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^18.2.0",
+    "prettier": "^3.3.3",
+    "storybook": "^8.4.3",
+    "stylelint": "^16.10.0",
+    "stylelint-config-recess-order": "^5.1.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.10.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
 }

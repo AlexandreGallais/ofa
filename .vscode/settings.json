@@ -1,306 +1,316 @@
 {
-    /* VSCode - Breadcrumbs */
-    "breadcrumbs.symbolPath": "off",
-    "breadcrumbs.icons": false,
+  /* VSCode - Breadcrumbs */
+  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.icons": false,
 
-    /* VSCode - Editor */
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": "'calt', 'ss03', 'ss04', 'ss05'",
-    "editor.fontWeight": "450",
-    "editor.letterSpacing": 0.25,
-    "editor.minimap.enabled": false,
+  /* VSCode - Editor */
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": "'calt', 'ss03', 'ss04', 'ss05'",
+  "editor.fontWeight": "450",
+  "editor.letterSpacing": 0.25,
+  "editor.minimap.enabled": false,
 
-    /* VSCode - Explorer */
-    "explorer.decorations.colors": false,
-    "explorer.fileNesting.enabled": true,
-    "explorer.fileNesting.patterns": {
-        "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig.json, vite.config.ts, .editorconfig, .stylelintrc.json, eslint.config.mjs"
-    },
-    "explorer.sortOrder": "type",
+  /* VSCode - Explorer */
+  "explorer.decorations.colors": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig*.json, .editorconfig, .stylelintrc.json, eslint.config.js, angular.json, .prettierrc"
+  },
+  "explorer.sortOrder": "type",
 
-    /* VSCode - Workbench */
-    "workbench.activityBar.location": "top",
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.tree.indent": 19,
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.view.alwaysShowHeaderActions": true,
-    "workbench.colorCustomizations": {
-        "gitDecoration.addedResourceForeground": "#ABB2BF",
-        "gitDecoration.conflictingResourceForeground": "#ABB2BF",
-        "gitDecoration.deletedResourceForeground": "#ABB2BF",
-        "gitDecoration.ignoredResourceForeground": "#ABB2BF",
-        "gitDecoration.modifiedResourceForeground": "#ABB2BF",
-        "gitDecoration.renamedResourceForeground": "#ABB2BF",
-        "gitDecoration.stageDeletedResourceForeground": "#ABB2BF",
-        "gitDecoration.stageModifiedResourceForeground": "#ABB2BF",
-        "gitDecoration.submoduleResourceForeground": "#ABB2BF",
-        "gitDecoration.untrackedResourceForeground": "#ABB2BF",
-        "tab.activeForeground": "#ABB2BF",
-        "tab.hoverForeground": "#ABB2BF",
-        "tab.inactiveForeground": "#ABB2BF",
-        "list.activeSelectionForeground": "#ABB2BF",
-        "list.inactiveSelectionForeground": "#ABB2BF"
-    },
+  /* VSCode - Workbench */
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 19,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.view.alwaysShowHeaderActions": true,
+  "workbench.colorCustomizations": {
+    "gitDecoration.addedResourceForeground": "#ABB2BF",
+    "gitDecoration.conflictingResourceForeground": "#ABB2BF",
+    "gitDecoration.deletedResourceForeground": "#ABB2BF",
+    "gitDecoration.ignoredResourceForeground": "#ABB2BF",
+    "gitDecoration.modifiedResourceForeground": "#ABB2BF",
+    "gitDecoration.renamedResourceForeground": "#ABB2BF",
+    "gitDecoration.stageDeletedResourceForeground": "#ABB2BF",
+    "gitDecoration.stageModifiedResourceForeground": "#ABB2BF",
+    "gitDecoration.submoduleResourceForeground": "#ABB2BF",
+    "gitDecoration.untrackedResourceForeground": "#ABB2BF",
+    "tab.activeForeground": "#ABB2BF",
+    "tab.hoverForeground": "#ABB2BF",
+    "tab.inactiveForeground": "#ABB2BF",
+    "list.activeSelectionForeground": "#ABB2BF",
+    "list.inactiveSelectionForeground": "#ABB2BF"
+  },
 
-    /* VSCode - Git */
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
+  /* VSCode - Git */
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
 
-    /* Language - All */
-    "[html][css][scss][json][jsonc]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+  /* Language - All */
+  "[html][css][scss][json][jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
-    /* Language - CSS */
-    "stylelint.validate": ["css", "scss", "typescript"], // remove typescript when not using lit
-    "[css][scss][typescript]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.stylelint": "explicit"
-        }
-    },
-
-    /* Language - JavaScript */
-    "[javascript][typescript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": "explicit"
-        }
-    },
-
-    /* Language - Markdown */
-    "[markdown]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
-        "editor.codeActionsOnSave": {
-            "source.fixAll.markdownlint": "explicit"
-        }
-    },
-
-    /* Extension - Material Icon */
-    "material-icon-theme.files.customClones": [
-        {
-            "name": "git-800",
-            "base": "git",
-            "color": "gray-800",
-            "fileNames": [".git", ".gitignore", ".gitmodules"]
-        },
-        {
-            "name": "certificate-800",
-            "base": "certificate",
-            "color": "gray-800",
-            "fileNames": ["LICENSE", "LICENSE.txt"]
-        },
-        {
-            "name": "nodejs-800",
-            "base": "nodejs",
-            "color": "gray-800",
-            "fileNames": ["package-lock.json"]
-        },
-        {
-            "name": "nodejs-500",
-            "base": "nodejs",
-            "color": "gray-500",
-            "fileNames": ["package.json"]
-        },
-        {
-            "name": "ts-500",
-            "base": "typescript",
-            "color": "gray-500",
-            "fileNames": []
-        },
-        {
-            "name": "ts-400",
-            "base": "typescript",
-            "color": "light-blue-400",
-            "fileNames": []
-        },
-        {
-            "name": "settings-500",
-            "base": "settings",
-            "color": "blue-gray-500",
-            "fileNames": [
-                ".editorconfig",
-                ".stylelintrc.json",
-                "eslint.config.mjs"
-            ]
-        },
-        {
-            "name": "tsconfig-500",
-            "base": "tsconfig",
-            "color": "gray-500",
-            "fileNames": ["tsconfig.json"]
-        },
-        {
-            "name": "vite-500",
-            "base": "vite",
-            "color": "gray-500",
-            "fileNames": ["vite.config.ts"]
-        },
-        {
-            "name": "component-light-blue-400",
-            "base": "pdm",
-            "color": "light-blue-400",
-            "fileNames": []
-        },
-        {
-            "name": "stories-pink-400",
-            "base": "pdm",
-            "color": "pink-400",
-            "fileNames": []
-        },
-        {
-            "name": "style-pink-400",
-            "base": "pdm",
-            "color": "pink-400",
-            "fileNames": []
-        },
-        {
-            "name": "mdx-amber-400",
-            "base": "pdm",
-            "color": "amber-400",
-            "fileNames": []
-        },
-        {
-            "name": "icon-orange-400",
-            "base": "svg",
-            "color": "orange-400",
-            "fileNames": []
-        },
-        {
-            "name": "font-red-400",
-            "base": "font",
-            "color": "red-400",
-            "fileNames": []
-        },
-        {
-            "name": "html-red-400",
-            "base": "html",
-            "color": "red-400",
-            "fileNames": []
-        },
-        {
-            "name": "readme-400",
-            "base": "readme",
-            "color": "light-blue-400",
-            "fileNames": ["readme.md"]
-        }
-    ],
-    "material-icon-theme.files.associations": {
-        "*.lit.ts": "component-light-blue-400",
-        "*.stories.ts": "stories-pink-400",
-        "*.scss": "style-pink-400",
-        "*.mdx": "mdx-amber-400",
-        "*.svg": "icon-orange-400",
-        "*.woff2": "font-red-400",
-        "*.html": "html-red-400",
-        "*.d.ts": "ts-500",
-        "*.ts": "ts-400"
-    },
-    "material-icon-theme.folders.customClones": [
-        {
-            "name": "gray-800",
-            "base": "folder",
-            "color": "gray-800",
-            "folderNames": [
-                ".git",
-                ".vscode",
-                "node_modules",
-                ".storybook",
-                ".cache"
-            ]
-        },
-        {
-            "name": "folder-light-blue-400",
-            "base": "folder",
-            "color": "light-blue-400",
-            "folderNames": [
-                "components",
-                "components/button",
-                "components/icon",
-                "cli",
-                "packages",
-                "packages/ffa"
-            ]
-        },
-        {
-            "name": "pink-400",
-            "base": "folder",
-            "color": "pink-400",
-            "folderNames": ["styles", "stories"]
-        },
-        {
-            "name": "amber-400",
-            "base": "folder",
-            "color": "amber-400",
-            "folderNames": ["static", "assets"]
-        },
-        {
-            "name": "green-400",
-            "base": "folder",
-            "color": "green-400",
-            "folderNames": ["src"]
-        },
-        {
-            "name": "deep-orange-400",
-            "base": "folder",
-            "color": "deep-orange-400",
-            "folderNames": ["dist"]
-        },
-        {
-            "name": "red-400",
-            "base": "folder",
-            "color": "red-400",
-            "folderNames": [
-                "fonts",
-                "fonts/ibm-plex-mono",
-                "ibm-plex-mono/mono",
-                "ibm-plex-mono/sans",
-                "ibm-plex-mono/sans-condensed",
-                "ibm-plex-mono/serif"
-            ]
-        },
-        {
-            "name": "orange-400",
-            "base": "folder",
-            "color": "orange-400",
-            "folderNames": ["icons"]
-        },
-        {
-            "name": "teal-400",
-            "base": "folder",
-            "color": "teal-400",
-            "folderNames": ["images"]
-        }
-    ],
-
-    /* Extension - gitmoji */
-    "gitmoji.showEmojiCode": true,
-
-    /* Extension - Explorer Exclude */
-    "files.exclude": {
-        "**/.git": false,
-        "**/.svn": false,
-        "**/.hg": false,
-        "**/CVS": false,
-        "**/.DS_Store": false,
-        "**/Thumbs.db": false,
-        "**/node_modules": false,
-        "**/.vscode": false,
-        "**/.storybook": false
-    },
-    "explorerExclude.backup": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/node_modules": true,
-        "**/.vscode": true,
-        "**/.storybook": true
+  /* Language - CSS */
+  "stylelint.validate": ["css", "scss"], // remove typescript when not using lit
+  "[css][scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
     }
+  },
+
+  /* Language - JavaScript */
+  "[javascript][typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  /* Language - Markdown */
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    }
+  },
+
+  /* Extension - Material Icon */
+  "material-icon-theme.files.customClones": [
+    {
+      "name": "git-800",
+      "base": "git",
+      "color": "gray-800",
+      "fileNames": [".git", ".gitignore", ".gitmodules"]
+    },
+    {
+      "name": "certificate-800",
+      "base": "certificate",
+      "color": "gray-800",
+      "fileNames": ["LICENSE", "LICENSE.txt"]
+    },
+    {
+      "name": "nodejs-800",
+      "base": "nodejs",
+      "color": "gray-800",
+      "fileNames": ["package-lock.json"]
+    },
+    {
+      "name": "nodejs-500",
+      "base": "nodejs",
+      "color": "gray-500",
+      "fileNames": ["package.json"]
+    },
+    {
+      "name": "ts-500",
+      "base": "typescript",
+      "color": "gray-500",
+      "fileNames": []
+    },
+    {
+      "name": "ts-400",
+      "base": "typescript",
+      "color": "light-blue-400",
+      "fileNames": []
+    },
+    {
+      "name": "settings-500",
+      "base": "settings",
+      "color": "blue-gray-500",
+      "fileNames": [".editorconfig", ".stylelintrc.json", "eslint.config.js"]
+    },
+    {
+      "name": "tsconfig-500",
+      "base": "tsconfig",
+      "color": "gray-500",
+      "fileNames": [
+        "tsconfig.json",
+        "tsconfig.lib.json",
+        "tsconfig.lib.prod.json",
+        "tsconfig.spec.json"
+      ]
+    },
+    {
+      "name": "vite-500",
+      "base": "vite",
+      "color": "gray-500",
+      "fileNames": ["vite.config.ts"]
+    },
+    {
+      "name": "component-light-blue-400",
+      "base": "pdm",
+      "color": "light-blue-400",
+      "fileNames": []
+    },
+    {
+      "name": "stories-pink-400",
+      "base": "pdm",
+      "color": "pink-400",
+      "fileNames": []
+    },
+    {
+      "name": "style-pink-400",
+      "base": "pdm",
+      "color": "pink-400",
+      "fileNames": []
+    },
+    {
+      "name": "mdx-amber-400",
+      "base": "pdm",
+      "color": "amber-400",
+      "fileNames": []
+    },
+    {
+      "name": "icon-orange-400",
+      "base": "svg",
+      "color": "orange-400",
+      "fileNames": []
+    },
+    {
+      "name": "font-red-400",
+      "base": "font",
+      "color": "red-400",
+      "fileNames": []
+    },
+    {
+      "name": "html-red-400",
+      "base": "html",
+      "color": "red-400",
+      "fileNames": []
+    },
+    {
+      "name": "readme-400",
+      "base": "readme",
+      "color": "light-blue-400",
+      "fileNames": ["readme.md"]
+    },
+    {
+      "name": "angular-500",
+      "base": "angular",
+      "color": "gray-500",
+      "fileNames": ["angular.json"]
+    },
+    {
+      "name": "prettier-500",
+      "base": "prettier",
+      "color": "gray-500",
+      "fileNames": [".prettierrc"]
+    }
+  ],
+  "material-icon-theme.files.associations": {
+    "*.component.ts": "component-light-blue-400",
+    "*.stories.ts": "stories-pink-400",
+    "*.scss": "style-pink-400",
+    "*.mdx": "mdx-amber-400",
+    "*.svg": "icon-orange-400",
+    "*.woff2": "font-red-400",
+    "*.html": "html-red-400",
+    "*.d.ts": "ts-500",
+    "*.ts": "ts-400"
+  },
+  "material-icon-theme.folders.customClones": [
+    {
+      "name": "gray-800",
+      "base": "folder",
+      "color": "gray-800",
+      "folderNames": [".git", ".vscode", "node_modules", ".storybook", ".cache"]
+    },
+    {
+      "name": "folder-light-blue-400",
+      "base": "folder",
+      "color": "light-blue-400",
+      "folderNames": [
+        "components",
+        "components/button",
+        "components/icon",
+        "cli",
+        "packages",
+        "packages/ffa"
+      ]
+    },
+    {
+      "name": "pink-400",
+      "base": "folder",
+      "color": "pink-400",
+      "folderNames": ["styles", "stories"]
+    },
+    {
+      "name": "amber-400",
+      "base": "folder",
+      "color": "amber-400",
+      "folderNames": ["static", "assets"]
+    },
+    {
+      "name": "green-400",
+      "base": "folder",
+      "color": "green-400",
+      "folderNames": ["src"]
+    },
+    {
+      "name": "deep-orange-400",
+      "base": "folder",
+      "color": "deep-orange-400",
+      "folderNames": ["dist"]
+    },
+    {
+      "name": "red-400",
+      "base": "folder",
+      "color": "red-400",
+      "folderNames": [
+        "fonts",
+        "fonts/ibm-plex-mono",
+        "ibm-plex-mono/mono",
+        "ibm-plex-mono/sans",
+        "ibm-plex-mono/sans-condensed",
+        "ibm-plex-mono/serif"
+      ]
+    },
+    {
+      "name": "orange-400",
+      "base": "folder",
+      "color": "orange-400",
+      "folderNames": ["icons"]
+    },
+    {
+      "name": "teal-400",
+      "base": "folder",
+      "color": "teal-400",
+      "folderNames": ["images"]
+    }
+  ],
+
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+
+  /* Extension - gitmoji */
+  "gitmoji.showEmojiCode": true,
+
+  /* Extension - Explorer Exclude */
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/node_modules": false,
+    "**/.vscode": false,
+    "**/.storybook": false
+  },
+  "explorerExclude.backup": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.vscode": true,
+    "**/.storybook": true
+  }
 }
