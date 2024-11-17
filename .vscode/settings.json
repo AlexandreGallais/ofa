@@ -14,9 +14,9 @@
   "explorer.decorations.colors": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig*.json, .editorconfig, .stylelintrc.json, eslint.config.js, angular.json, .prettierrc"
+    "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig*.json, .editorconfig, .stylelintrc.json, eslint.config.mjs, eslint-angular.config.mjs, angular.json, .prettierrc, ng-package.json, karma.conf.js, .browserslistrc"
   },
-  "explorer.sortOrder": "type",
+  "explorer.sortOrder": "default",
 
   /* VSCode - Workbench */
   "workbench.activityBar.location": "top",
@@ -48,14 +48,18 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
 
+  "files.associations": {
+    "*.svg": "html"
+  },
+
   /* Language - All */
-  "[html][css][scss][json][jsonc]": {
+  "[html][css][scss][json][jsonc][svg]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   /* Language - CSS */
-  "stylelint.validate": ["css", "scss"], // remove typescript when not using lit
+  "stylelint.validate": ["css", "scss"],
   "[css][scss]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "explicit"
@@ -83,206 +87,206 @@
   /* Extension - Material Icon */
   "material-icon-theme.files.customClones": [
     {
-      "name": "git-800",
-      "base": "git",
-      "color": "gray-800",
-      "fileNames": [".git", ".gitignore", ".gitmodules"]
-    },
-    {
-      "name": "certificate-800",
-      "base": "certificate",
-      "color": "gray-800",
-      "fileNames": ["LICENSE", "LICENSE.txt"]
-    },
-    {
-      "name": "nodejs-800",
-      "base": "nodejs",
-      "color": "gray-800",
-      "fileNames": ["package-lock.json"]
-    },
-    {
-      "name": "nodejs-500",
-      "base": "nodejs",
-      "color": "gray-500",
-      "fileNames": ["package.json"]
-    },
-    {
-      "name": "ts-500",
-      "base": "typescript",
-      "color": "gray-500",
-      "fileNames": []
-    },
-    {
-      "name": "ts-400",
-      "base": "typescript",
-      "color": "light-blue-400",
-      "fileNames": []
-    },
-    {
-      "name": "settings-500",
+      "name": "settings",
       "base": "settings",
-      "color": "blue-gray-500",
-      "fileNames": [".editorconfig", ".stylelintrc.json", "eslint.config.js"]
-    },
-    {
-      "name": "tsconfig-500",
-      "base": "tsconfig",
-      "color": "gray-500",
+      "color": "blue-gray-300",
       "fileNames": [
-        "tsconfig.json",
-        "tsconfig.lib.json",
-        "tsconfig.lib.prod.json",
-        "tsconfig.spec.json"
+        ".prettierrc",
+        ".editorconfig",
+        ".browserslistrc",
+        ".stylelintrc.json",
+        "karma.conf.js",
+        "eslint.config.mjs",
+        "eslint-angular.config.mjs"
       ]
     },
     {
-      "name": "vite-500",
-      "base": "vite",
-      "color": "gray-500",
-      "fileNames": ["vite.config.ts"]
-    },
-    {
-      "name": "component-light-blue-400",
-      "base": "pdm",
-      "color": "light-blue-400",
-      "fileNames": []
-    },
-    {
-      "name": "stories-pink-400",
-      "base": "pdm",
-      "color": "pink-400",
-      "fileNames": []
-    },
-    {
-      "name": "style-pink-400",
-      "base": "pdm",
-      "color": "pink-400",
-      "fileNames": []
-    },
-    {
-      "name": "mdx-amber-400",
-      "base": "pdm",
-      "color": "amber-400",
-      "fileNames": []
-    },
-    {
-      "name": "icon-orange-400",
-      "base": "svg",
-      "color": "orange-400",
-      "fileNames": []
-    },
-    {
-      "name": "font-red-400",
-      "base": "font",
-      "color": "red-400",
-      "fileNames": []
-    },
-    {
-      "name": "html-red-400",
-      "base": "html",
-      "color": "red-400",
-      "fileNames": []
-    },
-    {
-      "name": "readme-400",
-      "base": "readme",
-      "color": "light-blue-400",
-      "fileNames": ["readme.md"]
-    },
-    {
-      "name": "angular-500",
+      "name": "angular",
       "base": "angular",
-      "color": "gray-500",
-      "fileNames": ["angular.json"]
+      "color": "blue-gray-300"
     },
     {
-      "name": "prettier-500",
-      "base": "prettier",
-      "color": "gray-500",
-      "fileNames": [".prettierrc"]
+      "name": "certificate",
+      "base": "certificate",
+      "color": "gray-800"
+    },
+    {
+      "name": "nodejs",
+      "base": "nodejs",
+      "color": "gray-800"
+    },
+    {
+      "name": "tsconfig",
+      "base": "tsconfig",
+      "color": "gray-800"
+    },
+    {
+      "name": "git",
+      "base": "git",
+      "color": "gray-800"
+    },
+    {
+      "name": "component-html",
+      "base": "pdm",
+      "color": "deep-orange-A200"
+    },
+    {
+      "name": "component-scss",
+      "base": "pdm",
+      "color": "pink-A200"
+    },
+    {
+      "name": "component-ts",
+      "base": "pdm",
+      "color": "light-blue-A200"
+    },
+    {
+      "name": "enum-ts",
+      "base": "pdm",
+      "color": "cyan-A200"
+    },
+    {
+      "name": "style-scss",
+      "base": "pdm",
+      "color": "pink-A200"
+    },
+    {
+      "name": "storie-ts",
+      "base": "pdm",
+      "color": "pink-A100"
+    },
+    {
+      "name": "storie-mdx",
+      "base": "pdm",
+      "color": "amber-A200"
+    },
+    {
+      "name": "mdx",
+      "base": "pdm",
+      "color": "amber-A200"
+    },
+    {
+      "name": "service-ts",
+      "base": "pdm",
+      "color": "amber-A200"
+    },
+    {
+      "name": "token-ts",
+      "base": "pdm",
+      "color": "teal-A200"
+    },
+    {
+      "name": "constant-ts",
+      "base": "pdm",
+      "color": "blue-gray-300"
+    },
+    {
+      "name": "model-ts",
+      "base": "pdm",
+      "color": "red-A200"
+    },
+    {
+      "name": "pipe-ts",
+      "base": "pdm",
+      "color": "orange-A200"
     }
   ],
   "material-icon-theme.files.associations": {
-    "*.component.ts": "component-light-blue-400",
-    "*.stories.ts": "stories-pink-400",
-    "*.scss": "style-pink-400",
-    "*.mdx": "mdx-amber-400",
-    "*.svg": "icon-orange-400",
-    "*.woff2": "font-red-400",
-    "*.html": "html-red-400",
-    "*.d.ts": "ts-500",
-    "*.ts": "ts-400"
+    "*.component.html": "component-html",
+    "*.component.scss": "component-scss",
+    "*.component.ts": "component-ts",
+    "*.enum.ts": "enum-ts",
+    "*.style.scss": "style-scss",
+    "*.stories.ts": "storie-ts",
+    "*.stories.mdx": "storie-mdx",
+    "*.mdx": "mdx",
+    "*.service.ts": "service-ts",
+    "*.token.ts": "token-ts",
+    "*.constant.ts": "constant-ts",
+    "*.model.ts": "model-ts",
+    "*.pipe.ts": "pipe-ts"
   },
   "material-icon-theme.folders.customClones": [
     {
-      "name": "gray-800",
+      "name": "hidden",
       "base": "folder",
       "color": "gray-800",
-      "folderNames": [".git", ".vscode", "node_modules", ".storybook", ".cache"]
-    },
-    {
-      "name": "folder-light-blue-400",
-      "base": "folder",
-      "color": "light-blue-400",
       "folderNames": [
-        "components",
-        "components/button",
-        "components/icon",
-        "cli",
-        "packages",
-        "packages/ffa"
+        ".angular",
+        ".git",
+        ".vscode",
+        "node_modules",
+        ".storybook"
       ]
     },
     {
-      "name": "pink-400",
+      "name": "folder",
       "base": "folder",
-      "color": "pink-400",
-      "folderNames": ["styles", "stories"]
+      "color": "blue-gray-300",
+      "folderNames": ["components/icon"]
     },
     {
-      "name": "amber-400",
+      "name": "ressources",
       "base": "folder",
-      "color": "amber-400",
+      "color": "amber-A200",
       "folderNames": ["static", "assets"]
     },
     {
-      "name": "green-400",
+      "name": "enums",
       "base": "folder",
-      "color": "green-400",
-      "folderNames": ["src"]
+      "color": "cyan-A200",
+      "folderNames": ["enums"]
     },
     {
-      "name": "deep-orange-400",
+      "name": "styles",
       "base": "folder",
-      "color": "deep-orange-400",
-      "folderNames": ["dist"]
+      "color": "pink-A200",
+      "folderNames": ["styles"]
     },
     {
-      "name": "red-400",
+      "name": "stories",
       "base": "folder",
-      "color": "red-400",
-      "folderNames": [
-        "fonts",
-        "fonts/ibm-plex-mono",
-        "ibm-plex-mono/mono",
-        "ibm-plex-mono/sans",
-        "ibm-plex-mono/sans-condensed",
-        "ibm-plex-mono/serif"
-      ]
+      "color": "pink-A100",
+      "folderNames": ["stories"]
     },
     {
-      "name": "orange-400",
+      "name": "components",
       "base": "folder",
-      "color": "orange-400",
-      "folderNames": ["icons"]
+      "color": "light-blue-A200",
+      "folderNames": ["components", "lib"]
     },
     {
-      "name": "teal-400",
+      "name": "services",
       "base": "folder",
-      "color": "teal-400",
-      "folderNames": ["images"]
+      "color": "amber-A200",
+      "folderNames": ["services"]
+    },
+    {
+      "name": "tokens",
+      "base": "folder",
+      "color": "teal-A200",
+      "folderNames": ["tokens"]
+    },
+    {
+      "name": "constants",
+      "base": "folder",
+      "color": "blue-gray-300",
+      "folderNames": ["constants"]
+    },
+    {
+      "name": "models",
+      "base": "folder",
+      "color": "red-A200",
+      "folderNames": ["models"]
+    },
+    {
+      "name": "pipes",
+      "base": "folder",
+      "color": "orange-A200",
+      "folderNames": ["pipes"]
     }
   ],
+  "material-icon-theme.folders.associations": {},
 
   "typescript.suggest.paths": false,
   "javascript.suggest.paths": false,
@@ -300,7 +304,8 @@
     "**/Thumbs.db": false,
     "**/node_modules": false,
     "**/.vscode": false,
-    "**/.storybook": false
+    "**/.storybook": false,
+    "**/.angular": false
   },
   "explorerExclude.backup": {
     "**/.git": true,
@@ -311,6 +316,7 @@
     "**/Thumbs.db": true,
     "**/node_modules": true,
     "**/.vscode": true,
-    "**/.storybook": true
+    "**/.storybook": true,
+    "**/.angular": true
   }
 }
