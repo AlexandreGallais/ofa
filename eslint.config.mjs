@@ -76,7 +76,6 @@ export default tseslint.config(
       'no-lone-blocks': 'error',
       'no-lonely-if': 'error',
       'no-loop-func': 'error',
-      'no-magic-numbers': 'error',
       'no-multi-assign': 'error',
       'no-multi-str': 'error',
       'no-negated-condition': 'error',
@@ -93,7 +92,6 @@ export default tseslint.config(
       'no-shadow': 'error',
       'no-throw-literal': 'error',
       'no-undef-init': 'error',
-      'no-undefined': 'error',
       'no-underscore-dangle': 'error',
       'no-unneeded-ternary': 'error',
       'no-unused-expressions': 'error',
@@ -139,11 +137,7 @@ export default tseslint.config(
   },
   {
     files: ['**/*.ts'],
-    extends: [
-      ...tseslint.configs.strict,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended,
-    ],
+    extends: [...tseslint.configs.strict, ...tseslint.configs.stylistic],
     plugins: { perfectionist },
     languageOptions: {
       parserOptions: {
@@ -188,8 +182,6 @@ export default tseslint.config(
       '@typescript-eslint/no-loop-func': 'error',
       'no-loss-of-precision': 'off',
       '@typescript-eslint/no-loss-of-precision': 'error',
-      'no-magic-numbers': 'off',
-      '@typescript-eslint/no-magic-numbers': 'error',
       'no-redeclare': 'off',
       '@typescript-eslint/no-redeclare': 'error',
       'no-shadow': 'off',

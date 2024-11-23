@@ -156,11 +156,6 @@
       "color": "pink-A100"
     },
     {
-      "name": "storie-mdx",
-      "base": "pdm",
-      "color": "amber-A200"
-    },
-    {
       "name": "mdx",
       "base": "pdm",
       "color": "amber-A200"
@@ -189,6 +184,11 @@
       "name": "pipe-ts",
       "base": "pdm",
       "color": "orange-A200"
+    },
+    {
+      "name": "font",
+      "base": "font",
+      "color": "red-A200"
     }
   ],
   "material-icon-theme.files.associations": {
@@ -198,7 +198,6 @@
     "*.enum.ts": "enum-ts",
     "*.style.scss": "style-scss",
     "*.stories.ts": "storie-ts",
-    "*.stories.mdx": "storie-mdx",
     "*.mdx": "mdx",
     "*.service.ts": "service-ts",
     "*.token.ts": "token-ts",
@@ -247,7 +246,7 @@
       "name": "stories",
       "base": "folder",
       "color": "pink-A100",
-      "folderNames": ["stories"]
+      "folderNames": ["stories", "stories-utils"]
     },
     {
       "name": "components",
@@ -284,6 +283,18 @@
       "base": "folder",
       "color": "orange-A200",
       "folderNames": ["pipes"]
+    },
+    {
+      "name": "images",
+      "base": "folder",
+      "color": "teal-A200",
+      "folderNames": ["images", "icons"]
+    },
+    {
+      "name": "fonts",
+      "base": "folder",
+      "color": "red-A200",
+      "folderNames": ["fonts"]
     }
   ],
   "material-icon-theme.folders.associations": {},
@@ -296,18 +307,6 @@
 
   /* Extension - Explorer Exclude */
   "files.exclude": {
-    "**/.git": false,
-    "**/.svn": false,
-    "**/.hg": false,
-    "**/CVS": false,
-    "**/.DS_Store": false,
-    "**/Thumbs.db": false,
-    "**/node_modules": false,
-    "**/.vscode": false,
-    "**/.storybook": false,
-    "**/.angular": false
-  },
-  "explorerExclude.backup": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
@@ -318,5 +317,6 @@
     "**/.vscode": true,
     "**/.storybook": true,
     "**/.angular": true
-  }
+  },
+  "explorerExclude.backup": {}
 }

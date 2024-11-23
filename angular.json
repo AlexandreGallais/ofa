@@ -28,8 +28,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "packages/ffa/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "karmaConfig": "packages/ffa/karma.conf.js"
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
@@ -65,6 +64,11 @@
   },
   "schematics": {
     "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "skipTests": true
+    },
+    "@schematics/angular:application": {
       "style": "scss"
     }
   },
