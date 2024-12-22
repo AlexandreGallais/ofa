@@ -23,7 +23,7 @@ export default tseslint.config(
       'array-callback-return': 'error',
       'no-await-in-loop': 'error',
       'no-constructor-return': 'error',
-      'no-duplicate-imports': 'error',
+      // 'no-duplicate-imports': 'error',
       'no-inner-declarations': 'error',
       'no-promise-executor-return': 'error',
       'no-self-compare': 'error',

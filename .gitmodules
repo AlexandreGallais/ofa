@@ -10,3 +10,9 @@
 [submodule "packages/bfa"]
 	path = packages/bfa
 	url = https://github.com/AlexandreGallais/bfa.git
+[submodule "projects/mei-crm-spa"]
+	path = projects/mei-crm-spa
+	url = https://github.com/AlexandreGallais/mei-crm-spa.git
+[submodule "projects/mei-crm-server"]
+	path = projects/mei-crm-server
+	url = https://github.com/AlexandreGallais/mei-crm-server.git

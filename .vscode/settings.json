@@ -311,6 +311,7 @@
   "gitmoji.showEmojiCode": true,
 
   "deno.enable": true,
+  "deno.enablePaths": ["/packages/bfa"],
 
   /* Extension - Explorer Exclude */
   "files.exclude": {
