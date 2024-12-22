@@ -7,3 +7,6 @@
 [submodule "cli"]
 	path = cli
 	url = https://github.com/AlexandreGallais/cfa.git
+[submodule "packages/bfa"]
+	path = packages/bfa
+	url = https://github.com/AlexandreGallais/bfa.git

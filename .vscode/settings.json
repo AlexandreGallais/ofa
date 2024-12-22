@@ -14,7 +14,7 @@
   "explorer.decorations.colors": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig*.json, .editorconfig, .stylelintrc.json, eslint.config.mjs, eslint-angular.config.mjs, angular.json, .prettierrc, ng-package.json, karma.conf.js, .browserslistrc"
+    "README.md": "package.json, package-lock.json, LICENSE, .git, .gitignore, .gitmodules, tsconfig*.json, .editorconfig, .stylelintrc.json, eslint.config.mjs, eslint-angular.config.mjs, angular.json, .prettierrc, ng-package.json, karma.conf.js, .browserslistrc, deno.json"
   },
   "explorer.sortOrder": "default",
 
@@ -113,6 +113,11 @@
     {
       "name": "nodejs",
       "base": "nodejs",
+      "color": "gray-800"
+    },
+    {
+      "name": "deno",
+      "base": "deno",
       "color": "gray-800"
     },
     {
@@ -305,8 +310,21 @@
   /* Extension - gitmoji */
   "gitmoji.showEmojiCode": true,
 
+  "deno.enable": true,
+
   /* Extension - Explorer Exclude */
   "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/node_modules": false,
+    "**/.vscode": false,
+    "**/.angular": false
+  },
+  "explorerExclude.backup": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
@@ -315,8 +333,6 @@
     "**/Thumbs.db": true,
     "**/node_modules": true,
     "**/.vscode": true,
-    "**/.storybook": true,
     "**/.angular": true
-  },
-  "explorerExclude.backup": {}
+  }
 }
